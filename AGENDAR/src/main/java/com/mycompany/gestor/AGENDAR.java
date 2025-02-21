@@ -1,15 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.gestor;
 
-/**
- *
- * @author EQUIPO1
- */
+import com.mycompany.gestor.controladores.ViewController;
+import com.mycompany.gestor.vistas.LogIn;
+
+
 public class AGENDAR {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ViewController views = new ViewController();
+        views.agregarVista("login", new LogIn());
+        views.cambiarVista("login");
     }
 }

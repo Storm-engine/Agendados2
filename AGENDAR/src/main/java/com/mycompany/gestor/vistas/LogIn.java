@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.agendar.vistas;
+package com.mycompany.gestor.vistas;
 
 import com.mycompany.gestor.controladores.ControladorLogin;
 
@@ -39,7 +39,6 @@ public class LogIn extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 720));
 
         jPanel4.setBackground(new java.awt.Color(50, 111, 143));
 
