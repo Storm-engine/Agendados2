@@ -1,0 +1,66 @@
+CREATE DATABASE horario;
+USE horario;
+
+-- Tabla de estudiantes
+CREATE TABLE IF NOT EXISTS estudiantes (
+    id_estudiante INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    correo VARCHAR(50) UNIQUE NOT NULL,
+    semestre INT NOT NULL
+);
+
+-- Tabla de aulas
+CREATE TABLE IF NOT EXISTS aulas (
+    id_aula INT PRIMARY KEY AUTO_INCREMENT,
+    tipo_aula ENUM('COMUN', 'INFORMATICA', 'LABORATORIO') NOT NULL,
+    capacidad INT NOT NULL
+);
+
+-- Tabla de materias
+CREATE TABLE IF NOT EXISTS materias (
+    id_materia INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    carga_horaria INT NOT NULL
+);
+
+-- Tabla de profesores
+CREATE TABLE IF NOT EXISTS profesores (
+    id_profesor INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    correo VARCHAR(50) UNIQUE NOT NULL,
+    restriccion_horaria ENUM('MAÑANA', 'TARDE', 'NOCHE', 'NINGUNA') NOT NULL
+);
+
+-- Tabla de grupos
+CREATE TABLE IF NOT EXISTS grupos (
+    id_grupo INT PRIMARY KEY AUTO_INCREMENT,
+    id_materia INT NOT NULL,
+    id_profesor INT NOT NULL,
+    FOREIGN KEY (id_materia) REFERENCES materias(id_materia),
+    FOREIGN KEY (id_profesor) REFERENCES profesores(id_profesor)
+);
+
+-- Tabla de relación estudiante-grupo
+CREATE TABLE IF NOT EXISTS estudiante_grupos (
+    id_estudiante INT NOT NULL,
+    id_grupo INT NOT NULL,
+    PRIMARY KEY (id_estudiante, id_grupo),
+    FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante),
+    FOREIGN KEY (id_grupo) REFERENCES grupos(id_grupo)
+);
+
+-- Tabla de horarios
+CREATE TABLE IF NOT EXISTS horarios (
+    id_horario INT PRIMARY KEY AUTO_INCREMENT,
+    id_materia INT NOT NULL,
+    id_profesor INT NOT NULL,
+    id_aula INT NOT NULL,
+    id_grupo INT NOT NULL,
+    dia_semana ENUM('LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO') NOT NULL,
+    hora_inicio TIME NOT NULL,
+    hora_fin TIME NOT NULL,
+    FOREIGN KEY (id_materia) REFERENCES materias(id_materia),
+    FOREIGN KEY (id_profesor) REFERENCES profesores(id_profesor),
+    FOREIGN KEY (id_aula) REFERENCES aulas(id_aula),
+    FOREIGN KEY (id_grupo) REFERENCES grupos(id_grupo)
+);
