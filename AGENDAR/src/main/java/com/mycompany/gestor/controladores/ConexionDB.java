@@ -9,16 +9,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionDB {
-    private static final String URL = "jdbc:mysql://localhost:3306/horario";
-    private static final String USUARIO = "root"; 
-    private static final String CONTRASEÑA = "admin";  
 
-    public static Connection obtenerConexion() {
-        try {
-            return DriverManager.getConnection(URL, USUARIO, CONTRASEÑA);
-        } catch (SQLException e) {
-            System.out.println("❌ Error al conectar: " + e.getMessage());
-            return null;
-        }
+    private static final String URL = "jdbc:mysql://localhost:3306/horario";
+    private static final String USER = "root"; // o tu usuario de MySQL
+    private static final String PASSWORD = ""; // tu contraseña
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
