@@ -1,5 +1,7 @@
 package com.mycompany.gestor.controladores;
 
+import com.mycompany.gestor.vistas.LogIn;
+import java.util.ArrayList;
 import javax.swing.*;
 import java.util.HashMap;
 
@@ -20,13 +22,13 @@ public class ViewController {
         vistas.put(nombre, ventana);
     }
 
-    /**
-     * Cambia la vista activa, cerrando la actual y abriendo la nueva.
-     * @param nombre Nombre de la vista a mostrar
-     */
+    public void inicializar(){
+        agregarVista("login", new LogIn());
+    }
+    
     public void cambiarVista(String nombre) {
         if (!vistas.containsKey(nombre)) {
-            System.out.println("⚠️ Error: La vista '" + nombre + "' no está registrada.");
+            System.out.println("Error: La vista '" + nombre + "' no está registrada.");
             return;
         }
 

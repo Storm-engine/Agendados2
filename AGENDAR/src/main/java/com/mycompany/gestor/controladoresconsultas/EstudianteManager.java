@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.gestor.controladoresconsultas;
+import com.mycompany.gestor.controladores.Conexion;
 import com.mycompany.gestor.modelos.Estudiante;
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,8 +11,6 @@ import java.util.List;
 
 
 public class EstudianteManager {
-
-    // Método para obtener todos los estudiantes
     public List<Estudiante> obtenerTodos() {
         List<Estudiante> estudiantes = new ArrayList<>();
 
@@ -23,12 +22,14 @@ public class EstudianteManager {
 
             while (rs.next()) {
                 int id = rs.getInt("id_estudiante");
+                
                 String nombre = rs.getString("nombre");
                 String correo = rs.getString("correo");
                 int semestre = rs.getInt("semestre");
 
                 Estudiante e = new Estudiante(id, nombre, correo, semestre);
                 estudiantes.add(e);
+                e.tostring();
             }
 
         } catch (SQLException ex) {
@@ -40,14 +41,15 @@ public class EstudianteManager {
 
     // Método para insertar un nuevo estudiante
     public void insertar(Estudiante estudiante) {
-        String sql = "INSERT INTO estudiantes (nombre, correo, semestre) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO estudiantes (id_estudiante, nombre, correo, semestre) VALUES (?, ?, ?, ?)";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, estudiante.getNombre());
-            ps.setString(2, estudiante.getCorreo());
-            ps.setInt(3, estudiante.getSemestre());
+            ps.setInt(1, estudiante.getId());
+            ps.setString(2, estudiante.getNombre());
+            ps.setString(3, estudiante.getCorreo());
+            ps.setInt(4, estudiante.getSemestre());
 
             ps.executeUpdate();
 
@@ -56,5 +58,5 @@ public class EstudianteManager {
         }
     }
 
-    // Puedes hacer métodos para actualizar y eliminar también
+    // Puedes hacer métodos para actualizar y eliminar tambien
 }

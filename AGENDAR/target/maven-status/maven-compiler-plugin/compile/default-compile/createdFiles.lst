@@ -1,8 +1,12 @@
 com\mycompany\gestor\vistas\LogIn$1.class
 com\mycompany\gestor\vistas\LogIn.class
+com\mycompany\gestor\controladoresconsultas\EstudianteManager.class
 com\mycompany\gestor\AGENDAR.class
 com\mycompany\gestor\controladores\ControladorLogin.class
-com\mycompany\gestor\controladores\Consultas.class
-com\mycompany\gestor\controladores\ConexionDB.class
+com\mycompany\gestor\vistas\LogIn$3.class
+com\mycompany\gestor\controladores\vistas\ControladorVistaEstudiante.class
 com\mycompany\gestor\vistas\LogIn$2.class
+com\mycompany\gestor\modelos\Estudiante.class
+com\mycompany\gestor\vistas\LogIn$4.class
+com\mycompany\gestor\controladores\Conexion.class
 com\mycompany\gestor\controladores\ViewController.class

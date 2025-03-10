@@ -4,20 +4,19 @@
  */
 package com.mycompany.gestor.vistas;
 
-import com.mycompany.gestor.controladores.ControladorLogin;
+import com.mycompany.gestor.controladores.vistas.ControladorVistaEstudiante;
 
 /**
  *
  * @author EQUIPO1
  */
 public class LogIn extends javax.swing.JFrame {
-
+    ControladorVistaEstudiante ct = new ControladorVistaEstudiante();;
     /**
      * Creates new form LogIn
      */
     public LogIn() {
-        initComponents();
-        ControladorLogin ctr;
+        initComponents();        
     }
 
     /**
@@ -30,106 +29,185 @@ public class LogIn extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        edit_name = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        edit_id = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        edit_password = new javax.swing.JTextField();
-        btn_ingresar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        edit_nombre = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        edit_correo = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        edit_semestre = new javax.swing.JTextField();
+        btn_regresar = new javax.swing.JButton();
+        btn_insertar = new javax.swing.JButton();
+        btn_borrar = new javax.swing.JButton();
+        btn_actualizar = new javax.swing.JButton();
+        btn_consultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel4.setBackground(new java.awt.Color(50, 111, 143));
+        jPanel4.setBackground(new java.awt.Color(166, 36, 47));
 
-        jPanel1.setBackground(new java.awt.Color(97, 157, 181));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("Gestor de Estudiantes");
 
-        edit_name.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        edit_name.setForeground(new java.awt.Color(62, 62, 62));
-        edit_name.setActionCommand("<Not Set>");
-        edit_name.setBorder(null);
+        jPanel2.setBackground(new java.awt.Color(89, 4, 20));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Nombre de Usuario");
+        edit_id.setBackground(new java.awt.Color(140, 110, 93));
+        edit_id.setForeground(java.awt.Color.white);
+        edit_id.setText("jTextField1");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Contraseña");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel2.setText("ID:");
 
-        edit_password.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        edit_password.setForeground(new java.awt.Color(62, 62, 62));
-        edit_password.setActionCommand("<Not Set>");
-        edit_password.setBorder(null);
-        edit_password.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel3.setText("NOMBRE:");
+
+        edit_nombre.setBackground(new java.awt.Color(140, 110, 93));
+        edit_nombre.setForeground(java.awt.Color.white);
+        edit_nombre.setText("jTextField1");
+        edit_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edit_passwordActionPerformed(evt);
+                edit_nombreActionPerformed(evt);
             }
         });
 
-        btn_ingresar.setBackground(new java.awt.Color(60, 182, 124));
-        btn_ingresar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_ingresar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ingresar.setText("INGRESAR");
-        btn_ingresar.setBorder(null);
-        btn_ingresar.setMaximumSize(new java.awt.Dimension(75, 36));
-        btn_ingresar.setMinimumSize(new java.awt.Dimension(75, 36));
-        btn_ingresar.setPreferredSize(new java.awt.Dimension(75, 36));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel4.setText("CORREO:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(edit_password, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edit_name, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edit_name, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edit_password, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        edit_correo.setBackground(new java.awt.Color(140, 110, 93));
+        edit_correo.setForeground(java.awt.Color.white);
+        edit_correo.setText("jTextField1");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(60, 182, 124));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LOG IN");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel5.setText("SEMESTRE");
+
+        edit_semestre.setBackground(new java.awt.Color(140, 110, 93));
+        edit_semestre.setForeground(java.awt.Color.white);
+        edit_semestre.setText("jTextField1");
+
+        btn_regresar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_regresar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_regresar.setText("REGRESAR");
+
+        btn_insertar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_insertar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_insertar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_insertar.setText("INSERTAR");
+        btn_insertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_insertarActionPerformed(evt);
+            }
+        });
+
+        btn_borrar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_borrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_borrar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_borrar.setText("BORRAR");
+        btn_borrar.setActionCommand("");
+
+        btn_actualizar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_actualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_actualizar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_actualizar.setText("ACTUALIZAR");
+        btn_actualizar.setActionCommand("");
+
+        btn_consultar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_consultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_consultar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_consultar.setText("CONSULTAR");
+        btn_consultar.setActionCommand("");
+        btn_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(edit_id, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(edit_nombre)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(edit_correo)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(edit_semestre)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btn_regresar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_insertar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_borrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_actualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_consultar)))
+                .addContainerGap(417, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(edit_id, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(edit_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(edit_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(edit_semestre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(225, 225, 225)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,9 +224,24 @@ public class LogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void edit_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_passwordActionPerformed
+    private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
+        ct.contultar();
+    }//GEN-LAST:event_btn_consultarActionPerformed
+
+    private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_edit_passwordActionPerformed
+        ct.insertar(
+                Integer.parseInt(edit_id.getText()),
+                edit_nombre.getText(),
+                edit_correo.getText(),
+                Integer.parseInt(edit_semestre.getText())
+);
+
+    }//GEN-LAST:event_btn_insertarActionPerformed
+
+    private void edit_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_nombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,13 +279,21 @@ public class LogIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_ingresar;
-    private javax.swing.JTextField edit_name;
-    private javax.swing.JTextField edit_password;
+    private javax.swing.JButton btn_actualizar;
+    private javax.swing.JButton btn_borrar;
+    private javax.swing.JButton btn_consultar;
+    private javax.swing.JButton btn_insertar;
+    private javax.swing.JButton btn_regresar;
+    private javax.swing.JTextField edit_correo;
+    private javax.swing.JTextField edit_id;
+    private javax.swing.JTextField edit_nombre;
+    private javax.swing.JTextField edit_semestre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

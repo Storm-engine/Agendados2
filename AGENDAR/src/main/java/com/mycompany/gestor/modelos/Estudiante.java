@@ -33,4 +33,9 @@ public class Estudiante {
 
     public int getSemestre() { return semestre; }
     public void setSemestre(int semestre) { this.semestre = semestre; }
+    
+    public void tostring(){
+        System.out.println("ID: " + id + " Nombre: " 
+                + nombre + " Correo: " + correo + " Semestre: " + semestre);
+    }
 }
