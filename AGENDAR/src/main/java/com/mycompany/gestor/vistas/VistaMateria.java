@@ -4,18 +4,19 @@
  */
 package com.mycompany.gestor.vistas;
 
-import com.mycompany.gestor.controladores.vistas.ControladorVistaEstudiante;
+
+import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
 
 /**
  *
  * @author EQUIPO1
  */
-public class LogIn extends javax.swing.JFrame {
-    ControladorVistaEstudiante ct = new ControladorVistaEstudiante();
+public class VistaMateria extends javax.swing.JFrame {
+    ControladorVistaMateria ct = new ControladorVistaMateria();
     /**
      * Creates new form LogIn
      */
-    public LogIn() {
+    public VistaMateria() {
         initComponents();        
     }
 
@@ -36,9 +37,7 @@ public class LogIn extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         edit_nombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        edit_correo = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        edit_semestre = new javax.swing.JTextField();
+        edit_carga_horaria = new javax.swing.JTextField();
         btn_regresar = new javax.swing.JButton();
         btn_insertar = new javax.swing.JButton();
         btn_borrar = new javax.swing.JButton();
@@ -52,7 +51,7 @@ public class LogIn extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(242, 164, 68));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Gestor de Estudiantes");
+        jLabel1.setText("Gestor de Materias");
 
         jPanel2.setBackground(new java.awt.Color(89, 4, 20));
 
@@ -79,19 +78,11 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(242, 164, 68));
-        jLabel4.setText("CORREO:");
+        jLabel4.setText("CARGA HORARIA:");
 
-        edit_correo.setBackground(new java.awt.Color(140, 110, 93));
-        edit_correo.setForeground(java.awt.Color.white);
-        edit_correo.setText("jTextField1");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(242, 164, 68));
-        jLabel5.setText("SEMESTRE");
-
-        edit_semestre.setBackground(new java.awt.Color(140, 110, 93));
-        edit_semestre.setForeground(java.awt.Color.white);
-        edit_semestre.setText("jTextField1");
+        edit_carga_horaria.setBackground(new java.awt.Color(140, 110, 93));
+        edit_carga_horaria.setForeground(java.awt.Color.white);
+        edit_carga_horaria.setText("jTextField1");
 
         btn_regresar.setBackground(new java.awt.Color(217, 54, 54));
         btn_regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -145,11 +136,8 @@ public class LogIn extends javax.swing.JFrame {
                         .addComponent(edit_nombre)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(edit_correo)
+                        .addComponent(edit_carga_horaria)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(edit_semestre)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btn_regresar)
                         .addGap(18, 18, 18)
@@ -176,12 +164,8 @@ public class LogIn extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edit_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edit_semestre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(edit_carga_horaria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,8 +217,7 @@ public class LogIn extends javax.swing.JFrame {
         ct.insertar(
                 Integer.parseInt(edit_id.getText()),
                 edit_nombre.getText(),
-                edit_correo.getText(),
-                Integer.parseInt(edit_semestre.getText())
+                Integer.parseInt(edit_carga_horaria.getText())
 );
 
     }//GEN-LAST:event_btn_insertarActionPerformed
@@ -260,20 +243,21 @@ public class LogIn extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LogIn().setVisible(true);
+                new VistaMateria().setVisible(true);
             }
         });
     }
@@ -284,15 +268,13 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JButton btn_consultar;
     private javax.swing.JButton btn_insertar;
     private javax.swing.JButton btn_regresar;
-    private javax.swing.JTextField edit_correo;
+    private javax.swing.JTextField edit_carga_horaria;
     private javax.swing.JTextField edit_id;
     private javax.swing.JTextField edit_nombre;
-    private javax.swing.JTextField edit_semestre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables

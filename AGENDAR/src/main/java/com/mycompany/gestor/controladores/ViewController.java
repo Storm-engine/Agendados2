@@ -1,6 +1,7 @@
 package com.mycompany.gestor.controladores;
 
 import com.mycompany.gestor.vistas.LogIn;
+import com.mycompany.gestor.vistas.VistaMateria;
 import java.util.ArrayList;
 import javax.swing.*;
 import java.util.HashMap;
@@ -24,6 +25,7 @@ public class ViewController {
 
     public void inicializar(){
         agregarVista("login", new LogIn());
+        agregarVista("materias", new VistaMateria());
     }
     
     public void cambiarVista(String nombre) {
