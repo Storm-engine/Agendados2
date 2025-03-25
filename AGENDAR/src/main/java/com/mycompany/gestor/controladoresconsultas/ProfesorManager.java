@@ -3,31 +3,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.gestor.controladoresconsultas;
+
 import com.mycompany.gestor.controladores.Conexion;
-import com.mycompany.gestor.modelos.Estudiante;
-import java.sql.*;
+import com.mycompany.gestor.modelos.Profesor;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author USER
+ */
+public class ProfesorManager {
+    public List<Profesor> obtenerTodos() {
+        List<Profesor> profesores = new ArrayList<>();
 
-public class EstudianteManager {
-    public List<Estudiante> obtenerTodos() {
-        List<Estudiante> estudiantes = new ArrayList<>();
-
-        String sql = "SELECT * FROM estudiantes";
+        String sql = "SELECT * FROM profesores";
 
         try (Connection con = Conexion.getConnection();
              Statement stmt = con.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                int id = rs.getInt("id_estudiante");
+                int id = rs.getInt("id_profesor");
                 
                 String nombre = rs.getString("nombre");
                 String correo = rs.getString("correo");
-                int semestre = rs.getInt("semestre");
+                String restriccion_horaria = rs.getString("restriccion_horaria");
 
-                Estudiante e = new Estudiante(id, nombre, correo, semestre);
+                Profesor p = new Profesor(id, nombre, correo, restriccion_horaria);
                 estudiantes.add(e);
             }
 

@@ -4,19 +4,17 @@
  */
 package com.mycompany.gestor.vistas;
 
-import com.mycompany.gestor.controladores.vistas.ControladorVistaEstudiante;
-
 /**
  *
- * @author EQUIPO1
+ * @author USER
  */
-public class LogIn extends javax.swing.JFrame {
-    ControladorVistaEstudiante ct = new ControladorVistaEstudiante();;
+public class Vista_Profesor extends javax.swing.JFrame {
+
     /**
-     * Creates new form LogIn
+     * Creates new form GestorDocentes
      */
-    public LogIn() {
-        initComponents();        
+    public Vista_Profesor() {
+        initComponents();
     }
 
     /**
@@ -28,7 +26,6 @@ public class LogIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         edit_id = new javax.swing.JTextField();
@@ -38,38 +35,35 @@ public class LogIn extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         edit_correo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        edit_semestre = new javax.swing.JTextField();
         btn_regresar = new javax.swing.JButton();
         btn_insertar = new javax.swing.JButton();
         btn_borrar = new javax.swing.JButton();
         btn_actualizar = new javax.swing.JButton();
         btn_consultar = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel4.setBackground(new java.awt.Color(166, 36, 47));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel1.setForeground(new java.awt.Color(172, 211, 168));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Gestor de Estudiantes");
+        jLabel1.setText("Gestor de Docentes");
 
-        jPanel2.setBackground(new java.awt.Color(89, 4, 20));
+        jPanel2.setBackground(new java.awt.Color(62, 63, 91));
 
-        edit_id.setBackground(new java.awt.Color(140, 110, 93));
-        edit_id.setForeground(java.awt.Color.white);
+        edit_id.setBackground(new java.awt.Color(204, 204, 204));
         edit_id.setText("jTextField1");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel2.setForeground(new java.awt.Color(172, 211, 168));
         jLabel2.setText("ID:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel3.setForeground(new java.awt.Color(172, 211, 168));
         jLabel3.setText("NOMBRE:");
 
-        edit_nombre.setBackground(new java.awt.Color(140, 110, 93));
-        edit_nombre.setForeground(java.awt.Color.white);
+        edit_nombre.setBackground(new java.awt.Color(204, 204, 204));
         edit_nombre.setText("jTextField1");
         edit_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,29 +72,30 @@ public class LogIn extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(242, 164, 68));
+        jLabel4.setForeground(new java.awt.Color(172, 211, 168));
         jLabel4.setText("CORREO:");
 
-        edit_correo.setBackground(new java.awt.Color(140, 110, 93));
-        edit_correo.setForeground(java.awt.Color.white);
+        edit_correo.setEditable(false);
+        edit_correo.setBackground(new java.awt.Color(204, 204, 204));
         edit_correo.setText("jTextField1");
+        edit_correo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_correoActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(242, 164, 68));
-        jLabel5.setText("SEMESTRE");
+        jLabel5.setForeground(new java.awt.Color(172, 211, 168));
+        jLabel5.setText("Restriccion horaria");
 
-        edit_semestre.setBackground(new java.awt.Color(140, 110, 93));
-        edit_semestre.setForeground(java.awt.Color.white);
-        edit_semestre.setText("jTextField1");
-
-        btn_regresar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_regresar.setBackground(new java.awt.Color(138, 178, 166));
         btn_regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_regresar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_regresar.setForeground(new java.awt.Color(255, 255, 255));
         btn_regresar.setText("REGRESAR");
 
-        btn_insertar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_insertar.setBackground(new java.awt.Color(138, 178, 166));
         btn_insertar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_insertar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_insertar.setForeground(new java.awt.Color(255, 255, 255));
         btn_insertar.setText("INSERTAR");
         btn_insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,21 +103,21 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
-        btn_borrar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_borrar.setBackground(new java.awt.Color(138, 178, 166));
         btn_borrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_borrar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_borrar.setForeground(new java.awt.Color(255, 255, 255));
         btn_borrar.setText("BORRAR");
         btn_borrar.setActionCommand("");
 
-        btn_actualizar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_actualizar.setBackground(new java.awt.Color(138, 178, 166));
         btn_actualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_actualizar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_actualizar.setText("ACTUALIZAR");
         btn_actualizar.setActionCommand("");
 
-        btn_consultar.setBackground(new java.awt.Color(217, 54, 54));
+        btn_consultar.setBackground(new java.awt.Color(138, 178, 166));
         btn_consultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_consultar.setForeground(new java.awt.Color(242, 164, 68));
+        btn_consultar.setForeground(new java.awt.Color(255, 255, 255));
         btn_consultar.setText("CONSULTAR");
         btn_consultar.setActionCommand("");
         btn_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +125,9 @@ public class LogIn extends javax.swing.JFrame {
                 btn_consultarActionPerformed(evt);
             }
         });
+
+        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -147,9 +145,6 @@ public class LogIn extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(edit_correo)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(edit_semestre)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btn_regresar)
                         .addGap(18, 18, 18)
@@ -159,8 +154,11 @@ public class LogIn extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btn_actualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_consultar)))
-                .addContainerGap(417, Short.MAX_VALUE))
+                        .addComponent(btn_consultar))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,68 +178,56 @@ public class LogIn extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edit_semestre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
-        ct.contultar();
-    }//GEN-LAST:event_btn_consultarActionPerformed
-
-    private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
-        // TODO add your handling code here:
-        ct.insertar(
-                Integer.parseInt(edit_id.getText()),
-                edit_nombre.getText(),
-                edit_correo.getText(),
-                Integer.parseInt(edit_semestre.getText())
-);
-
-    }//GEN-LAST:event_btn_insertarActionPerformed
-
     private void edit_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edit_nombreActionPerformed
+
+    private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_insertarActionPerformed
+
+    private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
+
+    }//GEN-LAST:event_btn_consultarActionPerformed
+
+    private void edit_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_correoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_correoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,20 +246,23 @@ public class LogIn extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Profesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Profesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Profesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Profesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LogIn().setVisible(true);
+                new Vista_Profesor().setVisible(true);
             }
         });
     }
@@ -287,13 +276,12 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JTextField edit_correo;
     private javax.swing.JTextField edit_id;
     private javax.swing.JTextField edit_nombre;
-    private javax.swing.JTextField edit_semestre;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
