@@ -1,66 +1,60 @@
-CREATE DATABASE horario;
-USE horario;
+create database horario;
+use horario;
 
--- Tabla de estudiantes
-CREATE TABLE IF NOT EXISTS estudiantes (
-    id_estudiante INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    correo VARCHAR(50) UNIQUE NOT NULL,
-    semestre INT NOT NULL
+create table estudiantes (
+    id_estudiante int primary key auto_increment,
+    nombre varchar(50) not null,
+    correo varchar(50) unique not null,
+    semestre int not null
 );
 
--- Tabla de aulas
-CREATE TABLE IF NOT EXISTS aulas (
-    id_aula INT PRIMARY KEY AUTO_INCREMENT,
-    tipo_aula ENUM('COMUN', 'INFORMATICA', 'LABORATORIO') NOT NULL,
-    capacidad INT NOT NULL
+create table aulas (
+    id_aula int primary key auto_increment,
+    tipo_aula enum('comun', 'informatica', 'laboratorio') not null,
+    capacidad int not null
 );
 
--- Tabla de materias
-CREATE TABLE IF NOT EXISTS materias (
-    id_materia INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    carga_horaria INT NOT NULL
+create table materias (
+    id_materia int primary key auto_increment,
+    nombre varchar(50) not null,
+    carga_horaria int not null
 );
 
--- Tabla de profesores
-CREATE TABLE IF NOT EXISTS profesores (
-    id_profesor INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    correo VARCHAR(50) UNIQUE NOT NULL,
-    restriccion_horaria ENUM('MAÑANA', 'TARDE', 'NOCHE', 'NINGUNA') NOT NULL
+create table profesores (
+    id_profesor int primary key auto_increment,
+    nombre varchar(50) not null,
+    correo varchar(50) unique not null,
+    restriccion_horaria enum('mañana', 'tarde', 'noche', 'ninguna') not null
 );
 
--- Tabla de grupos
-CREATE TABLE IF NOT EXISTS grupos (
-    id_grupo INT PRIMARY KEY AUTO_INCREMENT,
-    id_materia INT NOT NULL,
-    id_profesor INT NOT NULL,
-    FOREIGN KEY (id_materia) REFERENCES materias(id_materia),
-    FOREIGN KEY (id_profesor) REFERENCES profesores(id_profesor)
+create table grupos (
+    id_grupo int primary key auto_increment,
+    id_materia int not null,
+    id_profesor int not null,
+    foreign key (id_materia) references materias(id_materia),
+    foreign key (id_profesor) references profesores(id_profesor)
 );
 
--- Tabla de relación estudiante-grupo
-CREATE TABLE IF NOT EXISTS estudiante_grupos (
-    id_estudiante INT NOT NULL,
-    id_grupo INT NOT NULL,
-    PRIMARY KEY (id_estudiante, id_grupo),
-    FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante),
-    FOREIGN KEY (id_grupo) REFERENCES grupos(id_grupo)
-);
+create table estudiante_grupos (
+    id_estudiante int not null,
+    id_grupo int not null,
+    primary key (id_estudiante, id_grupo),
+    foreign key (id_estudiante) references estudiantes(id_estudiante),
+    foreign key (id_grupo) references grupos(id_grupo ));
 
--- Tabla de horarios
-CREATE TABLE IF NOT EXISTS horarios (
-    id_horario INT PRIMARY KEY AUTO_INCREMENT,
-    id_materia INT NOT NULL,
-    id_profesor INT NOT NULL,
-    id_aula INT NOT NULL,
-    id_grupo INT NOT NULL,
-    dia_semana ENUM('LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO') NOT NULL,
-    hora_inicio TIME NOT NULL,
-    hora_fin TIME NOT NULL,
-    FOREIGN KEY (id_materia) REFERENCES materias(id_materia),
-    FOREIGN KEY (id_profesor) REFERENCES profesores(id_profesor),
-    FOREIGN KEY (id_aula) REFERENCES aulas(id_aula),
-    FOREIGN KEY (id_grupo) REFERENCES grupos(id_grupo)
-);
+create table horarios (
+    id_horario int primary key auto_increment,
+    id_materia int not null,
+    id_profesor int not null,
+    id_aula int not null,
+    id_grupo int not null,
+    dia_semana enum('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado') not null,
+    hora_inicio time not null,
+    hora_fin time not null,
+    foreign key (id_materia) references materias(id_materia),
+    foreign key (id_profesor) references profesores(id_profesor),
+    foreign key (id_aula) references aulas(id_aula)
+,
+    foreign key (id_grupo) references grupos(id_grupo)
+)
+;
