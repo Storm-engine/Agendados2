@@ -14,7 +14,7 @@ public class MateriaManager {
     public List<Materia> obtenerTodos() {
         List<Materia> materias = new ArrayList<>();
 
-        String sql = "SELECT * FROM estudiantes";
+        String sql = "SELECT * FROM aulas";
 
         try (Connection con = Conexion.getConnection();
              Statement stmt = con.createStatement();
@@ -38,15 +38,15 @@ public class MateriaManager {
     }
 
     // Método para insertar un nuevo estudiante
-    public void insertar(Materia estudiante) {
-        String sql = "INSERT INTO estudiantes (id_estudiante, nombre, correo, semestre) VALUES (?, ?, ?, ?)";
+    public void insertar(Materia materia) {
+        String sql = "INSERT INTO estudiantes (id_materia, nombre, carga_horaria) VALUES (?, ?, ?, )";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, estudiante.getId());
-            ps.setString(2, estudiante.getNombre());
-            ps.setInt(3, estudiante.getCarga_horaria());
+            ps.setInt(1, materia.getId());
+            ps.setString(2, materia.getNombre());
+            ps.setInt(3, materia.getCarga_horaria());
 
             ps.executeUpdate();
 
