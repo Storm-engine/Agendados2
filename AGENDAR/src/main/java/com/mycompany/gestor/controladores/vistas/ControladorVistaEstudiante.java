@@ -20,4 +20,8 @@ public class ControladorVistaEstudiante {
         Estudiante estudiante = new Estudiante( id,  nombre,  correo,  semestre);
         em.insertar(estudiante);
     }
+    
+    public void eliminar(int id){
+        em.eliminar(id);
+    }
 }

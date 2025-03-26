@@ -120,6 +120,11 @@ public class Vista_Estudiante extends javax.swing.JFrame {
         btn_borrar.setForeground(new java.awt.Color(242, 164, 68));
         btn_borrar.setText("BORRAR");
         btn_borrar.setActionCommand("");
+        btn_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_borrarActionPerformed(evt);
+            }
+        });
 
         btn_actualizar.setBackground(new java.awt.Color(217, 54, 54));
         btn_actualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -253,6 +258,10 @@ public class Vista_Estudiante extends javax.swing.JFrame {
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         vc.cambiarVista("menu");
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrarActionPerformed
+        ct.eliminar(Integer.parseInt(edit_id.getText()));
+    }//GEN-LAST:event_btn_borrarActionPerformed
 
     /**
      * @param args the command line arguments

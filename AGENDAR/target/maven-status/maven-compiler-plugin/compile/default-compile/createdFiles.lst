@@ -15,6 +15,7 @@ com\mycompany\gestor\vistas\Vista_Estudiante$1.class
 com\mycompany\gestor\vistas\Vista_Profesor$3.class
 com\mycompany\gestor\modelos\Aula.class
 com\mycompany\gestor\vistas\Vista_Profesor$6.class
+com\mycompany\gestor\vistas\Vista_Estudiante$6.class
 com\mycompany\gestor\controladoresconsultas\EstudianteManager.class
 com\mycompany\gestor\vistas\Vista_Materia$3.class
 com\mycompany\gestor\AGENDAR.class

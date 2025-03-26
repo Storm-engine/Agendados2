@@ -42,5 +42,10 @@ public class Materia {
     public void setCarga_horaria(int carca_horaria) {
         this.carga_horaria = carca_horaria;
     }
+
+    @Override
+    public String toString() {
+        return "Materia{" + "id=" + id + ", nombre=" + nombre + ", carga_horaria=" + carga_horaria + '}';
+    }
     
 }

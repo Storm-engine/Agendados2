@@ -56,5 +56,19 @@ public class EstudianteManager {
             ex.printStackTrace();
         }
     }
+    
+    public void eliminar(int id){
+        String sql = "delete from estudiantes where id_estudiante = ?";
+
+        try (Connection con = Conexion.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }
