@@ -11,14 +11,37 @@ import com.mycompany.gestor.modelos.Profesor;
  *
  * @author USER
  */
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+
 public class ControladorVistaProfesor {
-    ProfesorManager pm = new ProfesorManager();
-    public void consultar(){
-        System.out.println(pm.obtenerTodos());
+    ProfesorManager profesorManager = new ProfesorManager();
+
+    public List<Profesor> consultar(JTable tabla) {
+        List<Profesor> profesores = profesorManager.obtenerTodos();
+
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+
+        for (Profesor profesor : profesores) {
+            modelo.addRow(new Object[]{
+                profesor.getId(),
+                profesor.getNombre(),
+                profesor.getCorreo(),
+                profesor.getRestriccionHoraria()
+            });
+        }
+
+        return profesores;
     }
-    public void insertar(int id, String nombre, String correo, String restriccion){
-        Profesor.restriccion_horaria restriccionEnum = Profesor.restriccion_horaria.valueOf(restriccion.toUpperCase());
-        Profesor profesor = new Profesor(id, nombre, correo, restriccionEnum);
-        pm.insertar(profesor);
+
+    public void insertar(int id, String nombre, String correo, Profesor.restriccion_horaria restriccionHoraria) {
+        Profesor profesor = new Profesor(id, nombre, correo, restriccionHoraria);
+        profesorManager.insertar(profesor);
+    }
+
+    public void eliminar(int id) {
+        profesorManager.eliminar(id);
     }
 }

@@ -21,7 +21,6 @@ import java.util.List;
 public class ProfesorManager {
     public List<Profesor> obtenerTodos() {
         List<Profesor> profesores = new ArrayList<>();
-
         String sql = "SELECT * FROM profesores";
 
         try (Connection con = Conexion.getConnection();
@@ -30,35 +29,29 @@ public class ProfesorManager {
 
             while (rs.next()) {
                 int id = rs.getInt("id_profesor");
-                
                 String nombre = rs.getString("nombre");
                 String correo = rs.getString("correo");
-                String restriccion_horaria = rs.getString("restriccion_horaria");
+                Profesor.restriccion_horaria restriccion = Profesor.restriccion_horaria.valueOf(rs.getString("restriccion_horaria").toUpperCase());
 
-                Profesor.restriccion_horaria restriccion = Profesor.restriccion_horaria.valueOf(restriccion_horaria.toUpperCase());
-                Profesor p = new Profesor(id, nombre, correo, restriccion);
-                profesores.add(p);
+                profesores.add(new Profesor(id, nombre, correo, restriccion));
             }
 
         } catch (SQLException ex) {
-            ex.printStackTrace(); // o tu propio manejo de errores
+            ex.printStackTrace();
         }
 
         return profesores;
     }
 
-    // Método para insertar un nuevo estudiante
     public void insertar(Profesor profesor) {
-        String sql = "INSERT INTO profesores (id_profesor, nombre, correo, restriccion_horaria) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO profesores (nombre, correo, restriccion_horaria) VALUES (?, ?, ?)";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, profesor.getId());
-            ps.setString(2, profesor.getNombre());
-            ps.setString(3, profesor.getCorreo());
-            ps.setString(4, profesor.getRestriccionHoraria().name());
-
+            ps.setString(1, profesor.getNombre());
+            ps.setString(2, profesor.getCorreo());
+            ps.setString(3, profesor.getRestriccionHoraria().name().toLowerCase());
             ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -66,4 +59,34 @@ public class ProfesorManager {
         }
     }
 
+    public void actualizar(Profesor profesor) {
+        String sql = "UPDATE profesores SET nombre = ?, correo = ?, restriccion_horaria = ? WHERE id_profesor = ?";
+
+        try (Connection con = Conexion.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, profesor.getNombre());
+            ps.setString(2, profesor.getCorreo());
+            ps.setString(3, profesor.getRestriccionHoraria().name().toLowerCase());
+            ps.setInt(4, profesor.getId());
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void eliminar(int id) {
+        String sql = "DELETE FROM profesores WHERE id_profesor = ?";
+
+        try (Connection con = Conexion.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }

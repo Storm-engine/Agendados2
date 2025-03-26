@@ -38,7 +38,29 @@ public class EstudianteManager {
         return estudiantes;
     }
 
-    // Método para insertar un nuevo estudiante
+    
+    public void actualizar(Estudiante estudiante) {
+        String sql = "UPDATE estudiantes SET nombre = ?, correo = ?, semestre = ? WHERE id_estudiante = ?";
+
+        try (Connection con = Conexion.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, estudiante.getNombre());
+            ps.setString(2, estudiante.getCorreo());
+            ps.setInt(3, estudiante.getSemestre());
+            ps.setInt(4, estudiante.getId());
+
+            int filasAfectadas = ps.executeUpdate();
+            if (filasAfectadas > 0) {
+                System.out.println("Estudiante actualizado correctamente.");
+            } else {
+                System.out.println("No se encontró el estudiante con ID: " + estudiante.getId());
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
     public void insertar(Estudiante estudiante) {
         String sql = "INSERT INTO estudiantes (id_estudiante, nombre, correo, semestre) VALUES (?, ?, ?, ?)";
 

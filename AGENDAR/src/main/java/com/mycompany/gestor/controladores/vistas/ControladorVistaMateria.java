@@ -12,13 +12,36 @@ import com.mycompany.gestor.modelos.Materia;
  *
  * @author Sergio David
  */
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+
 public class ControladorVistaMateria {
-    MateriaManager em = new MateriaManager();
-    public void contultar(){
-        System.out.println(em.obtenerTodos());
+    MateriaManager materiaManager = new MateriaManager();
+
+    public List<Materia> consultar(JTable tabla) {
+        List<Materia> materias = materiaManager.obtenerTodas();
+
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[]{
+                materia.getId(),
+                materia.getNombre(),
+                materia.getCarga_horaria()
+            });
+        }
+
+        return materias;
     }
-    public void insertar(int id, String nombre, int carga_horaria){
-        Materia materia = new Materia(id,  nombre, carga_horaria);
-        em.insertar(materia);
+
+    public void insertar(int idMateria, String nombre, int cargaHoraria) {
+        Materia materia = new Materia(idMateria, nombre, cargaHoraria);
+        materiaManager.insertar(materia);
+    }
+
+    public void eliminar(int idMateria) {
+        materiaManager.eliminar(idMateria);
     }
 }
