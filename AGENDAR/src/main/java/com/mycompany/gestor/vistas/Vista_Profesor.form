@@ -227,6 +227,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="REGRESAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_regresarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_insertar">
           <Properties>

@@ -4,6 +4,7 @@
  */
 package com.mycompany.gestor.vistas;
 
+import com.mycompany.gestor.controladores.ViewController;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaEstudiante;
 
 /**
@@ -11,6 +12,7 @@ import com.mycompany.gestor.controladores.vistas.ControladorVistaEstudiante;
  * @author EQUIPO1
  */
 public class Vista_Estudiante extends javax.swing.JFrame {
+    ViewController vc = ViewController.get_instance();
     ControladorVistaEstudiante ct = new ControladorVistaEstudiante();;
     /**
      * Creates new form LogIn
@@ -97,6 +99,11 @@ public class Vista_Estudiante extends javax.swing.JFrame {
         btn_regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_regresar.setForeground(new java.awt.Color(242, 164, 68));
         btn_regresar.setText("REGRESAR");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
 
         btn_insertar.setBackground(new java.awt.Color(217, 54, 54));
         btn_insertar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -242,6 +249,10 @@ public class Vista_Estudiante extends javax.swing.JFrame {
     private void edit_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edit_nombreActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        vc.cambiarVista("menu");
+    }//GEN-LAST:event_btn_regresarActionPerformed
 
     /**
      * @param args the command line arguments

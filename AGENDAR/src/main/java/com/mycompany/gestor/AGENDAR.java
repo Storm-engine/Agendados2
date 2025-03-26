@@ -4,8 +4,8 @@ import com.mycompany.gestor.controladores.ViewController;
 
 public class AGENDAR {
     public static void main(String[] args) {
-        ViewController vc = new ViewController();
+        ViewController vc = ViewController.get_instance();
         vc.inicializar();
-        vc.cambiarVista("login");
+        vc.cambiarVista("menu");
     }
 }
