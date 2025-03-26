@@ -5,6 +5,7 @@
 package com.mycompany.gestor.vistas;
 
 import com.mycompany.gestor.controladores.ViewController;
+import com.mycompany.gestor.controladores.vistas.ControladorVistaProfesor;
 
 /**
  *
@@ -12,6 +13,7 @@ import com.mycompany.gestor.controladores.ViewController;
  */
 public class Vista_Profesor extends javax.swing.JFrame {
     ViewController vc = ViewController.get_instance();
+    ControladorVistaProfesor ct = new ControladorVistaProfesor();;
     /**
      * Creates new form GestorDocentes
      */
@@ -42,7 +44,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
         btn_borrar = new javax.swing.JButton();
         btn_actualizar = new javax.swing.JButton();
         btn_consultar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        select_restriccionH = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -77,7 +79,6 @@ public class Vista_Profesor extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(172, 211, 168));
         jLabel4.setText("CORREO:");
 
-        edit_correo.setEditable(false);
         edit_correo.setBackground(new java.awt.Color(204, 204, 204));
         edit_correo.setText("jTextField1");
         edit_correo.addActionListener(new java.awt.event.ActionListener() {
@@ -133,8 +134,8 @@ public class Vista_Profesor extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        select_restriccionH.setBackground(new java.awt.Color(204, 204, 204));
+        select_restriccionH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ninguna", "mañana", "tarde", "noche" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -163,7 +164,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_consultar))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(select_restriccionH, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
@@ -185,7 +186,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(select_restriccionH, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,6 +227,13 @@ public class Vista_Profesor extends javax.swing.JFrame {
 
     private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
+
+    ct.insertar(
+        Integer.parseInt(edit_id.getText()),   
+        edit_nombre.getText(),                 
+        edit_correo.getText(),                 
+        select_restriccionH.getSelectedItem().toString().toUpperCase() 
+    );
     }//GEN-LAST:event_btn_insertarActionPerformed
 
     private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
@@ -238,7 +246,6 @@ public class Vista_Profesor extends javax.swing.JFrame {
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         vc.cambiarVista("menu");
-        System.out.println("hola");
     }//GEN-LAST:event_btn_regresarActionPerformed
 
     /**
@@ -288,12 +295,12 @@ public class Vista_Profesor extends javax.swing.JFrame {
     private javax.swing.JTextField edit_correo;
     private javax.swing.JTextField edit_id;
     private javax.swing.JTextField edit_nombre;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> select_restriccionH;
     // End of variables declaration//GEN-END:variables
 }
