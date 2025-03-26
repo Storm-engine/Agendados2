@@ -8,6 +8,7 @@ import com.mycompany.gestor.controladores.ViewController;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaAula;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaEstudiante;
 import com.mycompany.gestor.modelos.Aula;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -18,11 +19,12 @@ import javax.swing.table.TableModel;
 public class Vista_Aula extends javax.swing.JFrame {
     ViewController vc = ViewController.get_instance();
     ControladorVistaAula ct = new ControladorVistaAula();
+    
     /**
      * Creates new form LogIn
      */
     public Vista_Aula() {
-        initComponents();        
+        initComponents();
     }
 
     /**
@@ -261,7 +263,8 @@ public class Vista_Aula extends javax.swing.JFrame {
     private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
         ct.insertar(Integer.parseInt(edit_id.getText()),
-                Aula.TipoAula.valueOf(combo.getSelectedItem()), WIDTH);
+                Aula.TipoAula.values()[combo.getSelectedIndex()],
+                slide_cap.getValue());
                 
                 
 

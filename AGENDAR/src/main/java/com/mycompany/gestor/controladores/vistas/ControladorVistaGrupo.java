@@ -11,6 +11,7 @@ package com.mycompany.gestor.controladores.vistas;
 import com.mycompany.gestor.controladoresconsultas.GrupoManager;
 import com.mycompany.gestor.modelos.Grupo;
 import com.mycompany.gestor.modelos.Materia;
+import com.mycompany.gestor.modelos.Profesor;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 public class ControladorVistaGrupo {
     GrupoManager grupoManager = new GrupoManager();
 
-    public List<Grupopo> consultar(JTable tabla) {
+    public List<Grupo> consultar(JTable tabla) {
         List<Grupo> grupos = grupoManager.obtenerTodos();
 
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
