@@ -13,12 +13,14 @@ public class Estudiante {
     private String nombre;
     private String correo;
     private int semestre;
+    private int idCarrera;
 
-    public Estudiante(int id, String nombre, String correo, int semestre) {
+    public Estudiante(int id, String nombre, String correo, int semestre, int idCarrera) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.semestre = semestre;
+        this.idCarrera = idCarrera;
     }
 
     // Getters y Setters
@@ -33,9 +35,8 @@ public class Estudiante {
 
     public int getSemestre() { return semestre; }
     public void setSemestre(int semestre) { this.semestre = semestre; }
-    
-    public void tostring(){
-        System.out.println("ID: " + id + " Nombre: " 
-                + nombre + " Correo: " + correo + " Semestre: " + semestre);
-    }
+
+    public int getIdCarrera() { return idCarrera; }
+    public void setIdCarrera(int idCarrera) { this.idCarrera = idCarrera; }
 }
+

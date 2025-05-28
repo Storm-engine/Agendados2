@@ -4,43 +4,51 @@
  */
 package com.mycompany.gestor.controladores.vistas;
 
+import com.mycompany.gestor.controladores.Conexion;
 import com.mycompany.gestor.controladoresconsultas.EstudianteManager;
 import com.mycompany.gestor.modelos.Estudiante;
+import java.sql.*;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Sergio David
- */
 public class ControladorVistaEstudiante {
     EstudianteManager em = new EstudianteManager();
-    public List<Estudiante> consultar(JTable tbl) {
-        List<Estudiante> estudiantes = em.obtenerTodos();
 
-        DefaultTableModel modelo = (DefaultTableModel) tbl.getModel();
-
-        modelo.setRowCount(0);
-
-        for (Estudiante est : estudiantes) {
-        modelo.addRow(new Object[]{
-            est.getId(), 
-            est.getNombre(), 
-            est.getCorreo(), 
-            est.getSemestre()
-        });
-        }
-
-        return estudiantes;
-        }
-
-    public void insertar(int id, String nombre, String correo, int semestre){
-        Estudiante estudiante = new Estudiante( id,  nombre,  correo,  semestre);
+    public void insertar(int id, String nombre, String correo, int semestre, int id_carrera) {
+        Estudiante estudiante = new Estudiante(id, nombre, correo, semestre, id_carrera);
         em.insertar(estudiante);
     }
-    
-    public void eliminar(int id){
+
+    public void eliminar(int id) {
         em.eliminar(id);
+    }
+
+    // Esta es la parte importante para cargar los datos con nombre de carrera
+    public void llenarTablaConConsulta(JTable tabla) {
+        String sql = "SELECT e.id_estudiante, e.nombre, e.correo, e.semestre, c.nombre AS carrera " +
+                     "FROM estudiantes e " +
+                     "JOIN carreras c ON e.id_carrera = c.id_carrera";
+
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+        
+        try (Connection con = Conexion.getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id_estudiante");
+                String nombre = rs.getString("nombre");
+                String correo = rs.getString("correo");
+                int semestre = rs.getInt("semestre");
+                String carrera = rs.getString("carrera");
+
+                modelo.addRow(new Object[]{id, nombre, correo, semestre, carrera});
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 }
