@@ -12,13 +12,13 @@ import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
  *
  * @author EQUIPO1
  */
-public class Vista_Materia extends javax.swing.JFrame {
+public class Vista_Carreras extends javax.swing.JFrame {
     ViewController vc = ViewController.get_instance();
     ControladorVistaMateria ct = new ControladorVistaMateria();
     /**
      * Creates new form LogIn
      */
-    public Vista_Materia() {
+    public Vista_Carreras() {
         initComponents();        
     }
 
@@ -38,13 +38,11 @@ public class Vista_Materia extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         edit_nombre = new javax.swing.JTextField();
-        lbl_carga = new javax.swing.JLabel();
         btn_regresar = new javax.swing.JButton();
         btn_insertar = new javax.swing.JButton();
         btn_borrar = new javax.swing.JButton();
         btn_actualizar = new javax.swing.JButton();
         btn_consultar = new javax.swing.JButton();
-        slide_carga = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
 
@@ -55,7 +53,7 @@ public class Vista_Materia extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(202, 210, 197));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Gestor de Materias");
+        jLabel1.setText("Gestor de Carreras");
 
         jPanel2.setBackground(new java.awt.Color(82, 121, 111));
 
@@ -79,10 +77,6 @@ public class Vista_Materia extends javax.swing.JFrame {
                 edit_nombreActionPerformed(evt);
             }
         });
-
-        lbl_carga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbl_carga.setForeground(new java.awt.Color(202, 210, 197));
-        lbl_carga.setText("CARGA HORARIA: 2 horas");
 
         btn_regresar.setBackground(new java.awt.Color(53, 79, 82));
         btn_regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -137,31 +131,22 @@ public class Vista_Materia extends javax.swing.JFrame {
             }
         });
 
-        slide_carga.setMaximum(6);
-        slide_carga.setMinimum(2);
-        slide_carga.setValue(2);
-        slide_carga.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                slide_cargaStateChanged(evt);
-            }
-        });
-
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "NOMBRE", "CARGA HORARIA"
+                "ID", "NOMBRE"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -198,10 +183,7 @@ public class Vista_Materia extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(edit_nombre)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(slide_carga, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbl_carga, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -219,11 +201,7 @@ public class Vista_Materia extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(edit_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_carga, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(slide_carga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117))
+                        .addGap(186, 186, 186))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
@@ -283,10 +261,6 @@ public class Vista_Materia extends javax.swing.JFrame {
         
     }//GEN-LAST:event_edit_nombreActionPerformed
 
-    private void slide_cargaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slide_cargaStateChanged
-        lbl_carga.setText("CARGA HORARIA: " + String.valueOf(slide_carga.getValue()) + " horas");
-    }//GEN-LAST:event_slide_cargaStateChanged
-
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         vc.cambiarVista("menu");
     }//GEN-LAST:event_btn_regresarActionPerformed
@@ -316,14 +290,26 @@ public class Vista_Materia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_Materia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Carreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_Materia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Carreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_Materia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Carreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_Materia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_Carreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -332,7 +318,7 @@ public class Vista_Materia extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vista_Materia().setVisible(true);
+                new Vista_Carreras().setVisible(true);
             }
         });
     }
@@ -351,8 +337,6 @@ public class Vista_Materia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_carga;
-    public javax.swing.JSlider slide_carga;
     public javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 }

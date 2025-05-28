@@ -24,9 +24,13 @@ public class MateriaManager {
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                materias.add(new Materia(rs.getInt("id_materia"), rs.getString("nombre"), rs.getInt("carga_horaria")));
+                Materia m = new Materia(
+                    rs.getInt("id_materia"),
+                    rs.getString("nombre"),
+                    rs.getInt("carga_horaria")
+                );
+                materias.add(m);
             }
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -34,48 +38,47 @@ public class MateriaManager {
         return materias;
     }
 
-    public void insertar(Materia materia) {
+    public void insertar(Materia m) {
         String sql = "INSERT INTO materias (nombre, carga_horaria) VALUES (?, ?)";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, materia.getNombre());
-            ps.setInt(2, materia.getCarga_horaria());
+            ps.setString(1, m.getNombre());
+            ps.setInt(2, m.getCarga_horaria());
             ps.executeUpdate();
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
-    public void actualizar(Materia materia) {
+    public void actualizar(Materia m) {
         String sql = "UPDATE materias SET nombre = ?, carga_horaria = ? WHERE id_materia = ?";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, materia.getNombre());
-            ps.setInt(2, materia.getCarga_horaria());
-            ps.setInt(3, materia.getId());
+            ps.setString(1, m.getNombre());
+            ps.setInt(2, m.getCarga_horaria());
+            ps.setInt(3, m.getId());
             ps.executeUpdate();
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
-    public void eliminar(int id) {
+    public void eliminar(int id_materia) {
         String sql = "DELETE FROM materias WHERE id_materia = ?";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, id);
+            ps.setInt(1, id_materia);
             ps.executeUpdate();
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 }
+
+

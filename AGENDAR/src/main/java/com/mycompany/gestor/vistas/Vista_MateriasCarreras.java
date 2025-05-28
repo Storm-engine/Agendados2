@@ -6,19 +6,21 @@ package com.mycompany.gestor.vistas;
 
 
 import com.mycompany.gestor.controladores.ViewController;
+import com.mycompany.gestor.controladores.vistas.ControladorVistaCarreraMateria;
+import com.mycompany.gestor.controladores.vistas.ControladorVistaMatCarr;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
 
 /**
  *
  * @author EQUIPO1
  */
-public class Vista_Materia extends javax.swing.JFrame {
+public class Vista_MateriasCarreras extends javax.swing.JFrame {
     ViewController vc = ViewController.get_instance();
-    ControladorVistaMateria ct = new ControladorVistaMateria();
+    ControladorVistaCarreraMateria ct = new ControladorVistaCarreraMateria();
     /**
      * Creates new form LogIn
      */
-    public Vista_Materia() {
+    public Vista_MateriasCarreras() {
         initComponents();        
     }
 
@@ -34,17 +36,17 @@ public class Vista_Materia extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        edit_id = new javax.swing.JTextField();
+        edit_id_carrera = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        edit_nombre = new javax.swing.JTextField();
+        edit_materia = new javax.swing.JTextField();
         lbl_carga = new javax.swing.JLabel();
         btn_regresar = new javax.swing.JButton();
         btn_insertar = new javax.swing.JButton();
         btn_borrar = new javax.swing.JButton();
         btn_actualizar = new javax.swing.JButton();
         btn_consultar = new javax.swing.JButton();
-        slide_carga = new javax.swing.JSlider();
+        slide_semestre = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
 
@@ -55,34 +57,34 @@ public class Vista_Materia extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(202, 210, 197));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Gestor de Materias");
+        jLabel1.setText("Unir Materias a Carreras");
 
         jPanel2.setBackground(new java.awt.Color(82, 121, 111));
 
-        edit_id.setBackground(new java.awt.Color(140, 110, 93));
-        edit_id.setForeground(java.awt.Color.white);
-        edit_id.setText("jTextField1");
+        edit_id_carrera.setBackground(new java.awt.Color(140, 110, 93));
+        edit_id_carrera.setForeground(java.awt.Color.white);
+        edit_id_carrera.setText("jTextField1");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(202, 210, 197));
-        jLabel2.setText("ID:");
+        jLabel2.setText("ID CARRERA");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(202, 210, 197));
-        jLabel3.setText("NOMBRE:");
+        jLabel3.setText("ID MATERIA:");
 
-        edit_nombre.setBackground(new java.awt.Color(140, 110, 93));
-        edit_nombre.setForeground(java.awt.Color.white);
-        edit_nombre.setText("jTextField1");
-        edit_nombre.addActionListener(new java.awt.event.ActionListener() {
+        edit_materia.setBackground(new java.awt.Color(140, 110, 93));
+        edit_materia.setForeground(java.awt.Color.white);
+        edit_materia.setText("jTextField1");
+        edit_materia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edit_nombreActionPerformed(evt);
+                edit_materiaActionPerformed(evt);
             }
         });
 
         lbl_carga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_carga.setForeground(new java.awt.Color(202, 210, 197));
-        lbl_carga.setText("CARGA HORARIA: 2 horas");
+        lbl_carga.setText("SEMESTRE");
 
         btn_regresar.setBackground(new java.awt.Color(53, 79, 82));
         btn_regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -137,12 +139,12 @@ public class Vista_Materia extends javax.swing.JFrame {
             }
         });
 
-        slide_carga.setMaximum(6);
-        slide_carga.setMinimum(2);
-        slide_carga.setValue(2);
-        slide_carga.addChangeListener(new javax.swing.event.ChangeListener() {
+        slide_semestre.setMaximum(6);
+        slide_semestre.setMinimum(2);
+        slide_semestre.setValue(2);
+        slide_semestre.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                slide_cargaStateChanged(evt);
+                slide_semestreStateChanged(evt);
             }
         });
 
@@ -154,7 +156,7 @@ public class Vista_Materia extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID", "NOMBRE", "CARGA HORARIA"
+                "ID MATERIA", "ID CARRERA", "SEMESTRE"
             }
         ) {
             Class[] types = new Class [] {
@@ -194,13 +196,13 @@ public class Vista_Materia extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(edit_id, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                                .addComponent(edit_id_carrera, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(edit_nombre)
+                                .addComponent(edit_materia)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(slide_carga, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(slide_semestre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbl_carga, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -214,15 +216,15 @@ public class Vista_Materia extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edit_id, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edit_id_carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edit_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edit_materia, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lbl_carga, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(slide_carga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(slide_semestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(117, 117, 117))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,11 +242,11 @@ public class Vista_Materia extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,28 +277,28 @@ public class Vista_Materia extends javax.swing.JFrame {
 
     private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
-        ct.insertar(edit_nombre.getText(), slide_carga.getValue());
+        ct.insertar(Integer.parseInt(edit_id_carrera.getText()), edit_materia.getText(), c, SOMEBITS, ERROR);
 
     }//GEN-LAST:event_btn_insertarActionPerformed
 
-    private void edit_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_nombreActionPerformed
+    private void edit_materiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_materiaActionPerformed
         
-    }//GEN-LAST:event_edit_nombreActionPerformed
+    }//GEN-LAST:event_edit_materiaActionPerformed
 
-    private void slide_cargaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slide_cargaStateChanged
-        lbl_carga.setText("CARGA HORARIA: " + String.valueOf(slide_carga.getValue()) + " horas");
-    }//GEN-LAST:event_slide_cargaStateChanged
+    private void slide_semestreStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slide_semestreStateChanged
+        lbl_carga.setText("CARGA HORARIA: " + String.valueOf(slide_semestre.getValue()) + " horas");
+    }//GEN-LAST:event_slide_semestreStateChanged
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         vc.cambiarVista("menu");
     }//GEN-LAST:event_btn_regresarActionPerformed
 
     private void btn_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrarActionPerformed
-        ct.eliminar(Integer.parseInt(edit_id.getText()));
+        ct.eliminar(Integer.parseInt(edit_id_carrera.getText()), Integer.parseInt(edit_materia.getText()));
     }//GEN-LAST:event_btn_borrarActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        ct.actualizar(Integer.parseInt(edit_id.getText()), edit_nombre.getText(), slide_carga.getValue());
+        ct.actualizar(Integer.parseInt(edit_id_carrera.getText()), edit_materia.getText(), slide_semestre.getValue());
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     /**
@@ -316,14 +318,18 @@ public class Vista_Materia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_Materia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_MateriasCarreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_Materia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_MateriasCarreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_Materia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_MateriasCarreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_Materia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vista_MateriasCarreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -332,7 +338,7 @@ public class Vista_Materia extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vista_Materia().setVisible(true);
+                new Vista_MateriasCarreras().setVisible(true);
             }
         });
     }
@@ -343,8 +349,8 @@ public class Vista_Materia extends javax.swing.JFrame {
     private javax.swing.JButton btn_consultar;
     private javax.swing.JButton btn_insertar;
     private javax.swing.JButton btn_regresar;
-    private javax.swing.JTextField edit_id;
-    private javax.swing.JTextField edit_nombre;
+    private javax.swing.JTextField edit_id_carrera;
+    private javax.swing.JTextField edit_materia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -352,7 +358,7 @@ public class Vista_Materia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_carga;
-    public javax.swing.JSlider slide_carga;
+    public javax.swing.JSlider slide_semestre;
     public javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 }
