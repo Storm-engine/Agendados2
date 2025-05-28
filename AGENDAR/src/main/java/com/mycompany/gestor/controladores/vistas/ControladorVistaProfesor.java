@@ -6,42 +6,41 @@ package com.mycompany.gestor.controladores.vistas;
 
 import com.mycompany.gestor.controladoresconsultas.ProfesorManager;
 import com.mycompany.gestor.modelos.Profesor;
-
-/**
- *
- * @author USER
- */
+import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.util.List;
 
 public class ControladorVistaProfesor {
-    ProfesorManager profesorManager = new ProfesorManager();
+    ProfesorManager pm = new ProfesorManager();
 
-    public List<Profesor> consultar(JTable tabla) {
-        List<Profesor> profesores = profesorManager.obtenerTodos();
-
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+    public List<Profesor> consultar(JTable tbl) {
+        List<Profesor> profesores = pm.obtenerTodos();
+        DefaultTableModel modelo = (DefaultTableModel) tbl.getModel();
         modelo.setRowCount(0);
 
-        for (Profesor profesor : profesores) {
+        for (Profesor prof : profesores) {
             modelo.addRow(new Object[]{
-                profesor.getId(),
-                profesor.getNombre(),
-                profesor.getCorreo(),
-                profesor.getRestriccionHoraria()
+                prof.getId(),
+                prof.getNombre(),
+                prof.getCorreo(),
+                prof.getRestriccionHoraria().toString()
             });
         }
 
         return profesores;
     }
 
-    public void insertar(int id, String nombre, String correo, Profesor.restriccion_horaria restriccionHoraria) {
-        Profesor profesor = new Profesor(id, nombre, correo, restriccionHoraria);
-        profesorManager.insertar(profesor);
+    public void insertar(int id, String nombre, String correo, Profesor.restriccion_horaria restriccion) {
+        Profesor profesor = new Profesor(id, nombre, correo, restriccion);
+        pm.insertar(profesor);
     }
 
     public void eliminar(int id) {
-        profesorManager.eliminar(id);
+        pm.eliminar(id);
+    }
+
+    public void actualizar(int id, String nombre, String correo, Profesor.restriccion_horaria restriccion) {
+        Profesor profesor = new Profesor(id, nombre, correo, restriccion);
+        pm.actualizar(profesor);
     }
 }
