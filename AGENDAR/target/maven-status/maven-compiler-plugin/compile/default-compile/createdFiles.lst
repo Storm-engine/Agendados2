@@ -1,4 +1,5 @@
 com\mycompany\gestor\vistas\Vista_Profesor.class
+com\mycompany\gestor\vistas\Vista_Materia$9.class
 com\mycompany\gestor\modelos\Profesor$restriccion_horaria.class
 com\mycompany\gestor\vistas\Vista_Profesor$5.class
 com\mycompany\gestor\vistas\Vista_Materia$2.class
@@ -43,6 +44,7 @@ com\mycompany\gestor\vistas\Vista_Menu.class
 com\mycompany\gestor\vistas\Vista_Profesor$3.class
 com\mycompany\gestor\vistas\Vista_Profesor$6.class
 com\mycompany\gestor\vistas\Vista_Estudiante$6.class
+com\mycompany\gestor\vistas\Vista_Materia$8.class
 com\mycompany\gestor\vistas\Vista_Aula$4.class
 com\mycompany\gestor\AGENDAR.class
 com\mycompany\gestor\vistas\Vista_Aula$1.class

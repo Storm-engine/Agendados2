@@ -109,12 +109,22 @@ public class Vista_Materia extends javax.swing.JFrame {
         btn_borrar.setForeground(new java.awt.Color(202, 210, 197));
         btn_borrar.setText("BORRAR");
         btn_borrar.setActionCommand("");
+        btn_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_borrarActionPerformed(evt);
+            }
+        });
 
         btn_actualizar.setBackground(new java.awt.Color(53, 79, 82));
         btn_actualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_actualizar.setForeground(new java.awt.Color(202, 210, 197));
         btn_actualizar.setText("ACTUALIZAR");
         btn_actualizar.setActionCommand("");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarActionPerformed(evt);
+            }
+        });
 
         btn_consultar.setBackground(new java.awt.Color(53, 79, 82));
         btn_consultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -138,20 +148,20 @@ public class Vista_Materia extends javax.swing.JFrame {
 
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID", "NOMBRE", "CORREO", "SEMESTRE"
+                "ID", "NOMBRE", "CARGA HORARIA"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -265,11 +275,7 @@ public class Vista_Materia extends javax.swing.JFrame {
 
     private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
-        ct.insertar(
-                Integer.parseInt(edit_id.getText()),
-                edit_nombre.getText(),
-                slide_carga.getValue()
-);
+        ct.insertar(edit_nombre.getText(), slide_carga.getValue());
 
     }//GEN-LAST:event_btn_insertarActionPerformed
 
@@ -284,6 +290,14 @@ public class Vista_Materia extends javax.swing.JFrame {
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         vc.cambiarVista("menu");
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrarActionPerformed
+        ct.eliminar(Integer.parseInt(edit_id.getText()));
+    }//GEN-LAST:event_btn_borrarActionPerformed
+
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+        ct.actualizar(Integer.parseInt(edit_id.getText()), edit_nombre.getText(), slide_carga.getValue());
+    }//GEN-LAST:event_btn_actualizarActionPerformed
 
     /**
      * @param args the command line arguments

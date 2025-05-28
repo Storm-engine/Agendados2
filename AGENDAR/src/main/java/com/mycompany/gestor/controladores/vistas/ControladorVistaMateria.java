@@ -17,31 +17,36 @@ import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
 public class ControladorVistaMateria {
-    MateriaManager materiaManager = new MateriaManager();
+    MateriaManager mm = new MateriaManager();
 
     public List<Materia> consultar(JTable tabla) {
-        List<Materia> materias = materiaManager.obtenerTodas();
-
+        List<Materia> materias = mm.obtenerTodas();
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
 
-        for (Materia materia : materias) {
+        for (Materia m : materias) {
             modelo.addRow(new Object[]{
-                materia.getId(),
-                materia.getNombre(),
-                materia.getCarga_horaria()
+                m.getId(),
+                m.getNombre(),
+                m.getCarga_horaria()
             });
         }
 
         return materias;
     }
 
-    public void insertar(int idMateria, String nombre, int cargaHoraria) {
-        Materia materia = new Materia(idMateria, nombre, cargaHoraria);
-        materiaManager.insertar(materia);
+    public void insertar(String nombre, int carga_horaria) {
+        Materia m = new Materia(0, nombre, carga_horaria); // ID será autogenerado
+        mm.insertar(m);
     }
 
-    public void eliminar(int idMateria) {
-        materiaManager.eliminar(idMateria);
+    public void actualizar(int id, String nombre, int carga_horaria) {
+        Materia m = new Materia(id, nombre, carga_horaria);
+        mm.actualizar(m);
+    }
+
+    public void eliminar(int id) {
+        mm.eliminar(id);
     }
 }
+
