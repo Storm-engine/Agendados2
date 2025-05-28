@@ -277,7 +277,7 @@ public class Vista_MateriasCarreras extends javax.swing.JFrame {
 
     private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
-        ct.insertar(Integer.parseInt(edit_id_carrera.getText()), edit_materia.getText(), c, SOMEBITS, ERROR);
+        ct.insertar(edit_id_carrera.getText()), Integer.parseInt(edit_materia.getText()), slide_semestre.getValue());
 
     }//GEN-LAST:event_btn_insertarActionPerformed
 
@@ -298,7 +298,7 @@ public class Vista_MateriasCarreras extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_borrarActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        ct.actualizar(Integer.parseInt(edit_id_carrera.getText()), edit_materia.getText(), slide_semestre.getValue());
+        ct.actualizar(Integer.parseInt(edit_id_carrera.getText()), Integer.parseInt(edit_materia.getText()), slide_semestre.getValue());
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     /**

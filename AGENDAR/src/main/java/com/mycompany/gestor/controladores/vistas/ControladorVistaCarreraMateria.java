@@ -9,6 +9,7 @@ import com.mycompany.gestor.controladoresconsultas.CarreraMateriaManager;
 import com.mycompany.gestor.controladoresconsultas.EstudianteManager;
 import com.mycompany.gestor.modelos.CarreraMateria;
 import com.mycompany.gestor.modelos.Estudiante;
+import java.awt.color.CMMException;
 import java.sql.*;
 import java.util.List;
 import javax.swing.JTable;
@@ -41,5 +42,11 @@ public class ControladorVistaCarreraMateria {
 
         return lista;
     }
+    
+    public void actualizar(int id_materia,int id_carrera, int semestre){
+        CarreraMateria new_cm = new CarreraMateria(id_materia,id_carrera, semestre);
+        manager.actualizar(new_cm);
+    }
+    
 }
 

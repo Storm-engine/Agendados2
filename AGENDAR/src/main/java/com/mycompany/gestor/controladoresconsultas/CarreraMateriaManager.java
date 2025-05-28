@@ -61,6 +61,23 @@ public class CarreraMateriaManager {
 
         return lista;
     }
+    public void actualizar(CarreraMateria cm) {
+    String sql = "UPDATE carrera_materias SET semestre = ? WHERE id_carrera = ? AND id_materia = ?";
+
+    try (Connection con = Conexion.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setInt(1, cm.getSemestre());
+        ps.setInt(2, cm.getIdCarrera());
+        ps.setInt(3, cm.getIdMateria());
+
+        ps.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+    
 }
 
 
