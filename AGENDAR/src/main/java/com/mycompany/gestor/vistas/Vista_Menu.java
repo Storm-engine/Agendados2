@@ -38,6 +38,8 @@ public class Vista_Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btn_estudiantes = new javax.swing.JButton();
+        btn_unir = new javax.swing.JButton();
+        btn_carreras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +95,26 @@ public class Vista_Menu extends javax.swing.JFrame {
             }
         });
 
+        btn_unir.setBackground(new java.awt.Color(252, 163, 17));
+        btn_unir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_unir.setText("Unir materias");
+        btn_unir.setToolTipText("");
+        btn_unir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_unirActionPerformed(evt);
+            }
+        });
+
+        btn_carreras.setBackground(new java.awt.Color(252, 163, 17));
+        btn_carreras.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_carreras.setText("Carreras");
+        btn_carreras.setToolTipText("");
+        btn_carreras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_carrerasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -108,10 +130,18 @@ public class Vista_Menu extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_estudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_materias, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_profesores, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_profesores, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_unir, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_estudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_materias, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_carreras, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +151,13 @@ public class Vista_Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
-                .addComponent(btn_profesores)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_profesores)
+                    .addComponent(btn_unir))
                 .addGap(48, 48, 48)
-                .addComponent(btn_materias)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_materias)
+                    .addComponent(btn_carreras))
                 .addGap(46, 46, 46)
                 .addComponent(btn_estudiantes)
                 .addContainerGap(106, Short.MAX_VALUE))
@@ -173,6 +207,14 @@ public class Vista_Menu extends javax.swing.JFrame {
     private void btn_estudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_estudiantesActionPerformed
         vc.cambiarVista("estudiante");
     }//GEN-LAST:event_btn_estudiantesActionPerformed
+
+    private void btn_unirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_unirActionPerformed
+        vc.cambiarVista("carrera_materias");
+    }//GEN-LAST:event_btn_unirActionPerformed
+
+    private void btn_carrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_carrerasActionPerformed
+        vc.cambiarVista("carrera");
+    }//GEN-LAST:event_btn_carrerasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,9 +267,11 @@ public class Vista_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_carreras;
     private javax.swing.JButton btn_estudiantes;
     private javax.swing.JButton btn_materias;
     private javax.swing.JButton btn_profesores;
+    private javax.swing.JButton btn_unir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

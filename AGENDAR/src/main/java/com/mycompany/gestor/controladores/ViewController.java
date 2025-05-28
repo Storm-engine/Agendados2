@@ -1,7 +1,9 @@
 package com.mycompany.gestor.controladores;
 
+import com.mycompany.gestor.vistas.Vista_Carreras;
 import com.mycompany.gestor.vistas.Vista_Estudiante;
 import com.mycompany.gestor.vistas.Vista_Materia;
+import com.mycompany.gestor.vistas.Vista_MateriasCarreras;
 import com.mycompany.gestor.vistas.Vista_Menu;
 import com.mycompany.gestor.vistas.Vista_Profesor;
 import java.util.ArrayList;
@@ -37,6 +39,8 @@ public class ViewController {
         agregarVista("materia", new Vista_Materia());
         agregarVista("profesor", new Vista_Profesor());
         agregarVista("menu", new Vista_Menu());
+        agregarVista("carrera", new Vista_Carreras());
+        agregarVista("carrera_materias", new Vista_MateriasCarreras());
     }
     
     public void cambiarVista(String nombre) {
