@@ -6,6 +6,8 @@ package com.mycompany.gestor.vistas;
 
 
 import com.mycompany.gestor.controladores.ViewController;
+import com.mycompany.gestor.controladores.vistas.ControladorVistaCarrera;
+import com.mycompany.gestor.controladores.vistas.ControladorVistaCarreraMateria;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
 
 /**
@@ -14,7 +16,7 @@ import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
  */
 public class Vista_Carreras extends javax.swing.JFrame {
     ViewController vc = ViewController.get_instance();
-    ControladorVistaMateria ct = new ControladorVistaMateria();
+    ControladorVistaCarrera ct = new ControladorVistaCarrera();
     /**
      * Creates new form LogIn
      */
@@ -253,7 +255,7 @@ public class Vista_Carreras extends javax.swing.JFrame {
 
     private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
-        ct.insertar(edit_nombre.getText(), slide_carga.getValue());
+        ct.insertar(edit_nombre.getText());
 
     }//GEN-LAST:event_btn_insertarActionPerformed
 
@@ -270,7 +272,7 @@ public class Vista_Carreras extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_borrarActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        ct.actualizar(Integer.parseInt(edit_id.getText()), edit_nombre.getText(), slide_carga.getValue());
+        ct.actualizar(Integer.parseInt(edit_id.getText()), edit_nombre.getText());
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     /**

@@ -10,16 +10,15 @@ package com.mycompany.gestor.modelos;
  */
 public class Aula {
     private int idAula;
-    public enum TipoAula {
-    COMUN, INFORMATICA, LABORATORIO;
-    }
-    private TipoAula tipoAula;
+    private String tipoAula;  // ahora es String
     private int capacidad;
+    private String nombre;
 
-    public Aula(int idAula, TipoAula tipoAula, int capacidad) {
+    public Aula(int idAula, String tipoAula, int capacidad, String nombre) {
         this.idAula = idAula;
         this.tipoAula = tipoAula;
         this.capacidad = capacidad;
+        this.nombre = nombre;
     }
 
     // Getters y Setters
@@ -31,11 +30,11 @@ public class Aula {
         this.idAula = idAula;
     }
 
-    public TipoAula getTipoAula() {
+    public String getTipoAula() {
         return tipoAula;
     }
 
-    public void setTipoAula(TipoAula tipoAula) {
+    public void setTipoAula(String tipoAula) {
         this.tipoAula = tipoAula;
     }
 
@@ -45,5 +44,13 @@ public class Aula {
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

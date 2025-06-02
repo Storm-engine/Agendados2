@@ -4,8 +4,13 @@
  */
 package com.mycompany.gestor.vistas;
 
+import Horarios.GeneradorHorario;
+import com.mycompany.gestor.controladores.Conexion;
 import com.mycompany.gestor.controladores.ViewController;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaEstudiante;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -15,6 +20,7 @@ import javax.swing.table.TableModel;
  */
 public class Vista_Estudiante extends javax.swing.JFrame {
     ViewController vc = ViewController.get_instance();
+    GeneradorHorario gen = new GeneradorHorario();  
     ControladorVistaEstudiante ct = new ControladorVistaEstudiante();
     /**
      * Creates new form LogIn
@@ -52,6 +58,7 @@ public class Vista_Estudiante extends javax.swing.JFrame {
         tbl = new javax.swing.JTable();
         lbl_semestre1 = new javax.swing.JLabel();
         edit_carrera = new javax.swing.JTextField();
+        btn_generacion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,6 +196,17 @@ public class Vista_Estudiante extends javax.swing.JFrame {
             }
         });
 
+        btn_generacion.setBackground(new java.awt.Color(217, 54, 54));
+        btn_generacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_generacion.setForeground(new java.awt.Color(242, 164, 68));
+        btn_generacion.setText("Asignar Grupos");
+        btn_generacion.setActionCommand("");
+        btn_generacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_generacionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -206,7 +224,8 @@ public class Vista_Estudiante extends javax.swing.JFrame {
                         .addComponent(btn_actualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_consultar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_generacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -230,8 +249,8 @@ public class Vista_Estudiante extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(edit_carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(87, 87, 87))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +284,8 @@ public class Vista_Estudiante extends javax.swing.JFrame {
                     .addComponent(btn_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_generacion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -340,6 +360,14 @@ public class Vista_Estudiante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_edit_carreraActionPerformed
 
+    private void btn_generacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generacionActionPerformed
+        try {
+            gen.asignarGruposFaltantes(Conexion.getConnection());
+        } catch (SQLException ex) {
+            Logger.getLogger(Vista_Estudiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_generacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -386,6 +414,7 @@ public class Vista_Estudiante extends javax.swing.JFrame {
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_borrar;
     private javax.swing.JButton btn_consultar;
+    private javax.swing.JButton btn_generacion;
     private javax.swing.JButton btn_insertar;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JTextField edit_carrera;

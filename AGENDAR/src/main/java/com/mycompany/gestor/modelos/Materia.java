@@ -12,11 +12,21 @@ public class Materia {
     private int id;
     private String nombre;
     private int carga_horaria;
+    private String aula;
 
-    public Materia(int id, String nombre, int carga_horaria) {
+    public Materia(int id, String nombre, int carga_horaria, String aula) {
         this.id = id;
         this.nombre = nombre;
         this.carga_horaria = carga_horaria;
+        this.aula = aula;
+    }
+
+    public String getAula() {
+        return aula;
+    }
+
+    public void setAula(String aula) {
+        this.aula = aula;
     }
 
     public int getId() {

@@ -45,7 +45,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
         btn_borrar = new javax.swing.JButton();
         btn_actualizar = new javax.swing.JButton();
         btn_consultar = new javax.swing.JButton();
-        combo = new javax.swing.JComboBox<>();
+        box_restriccion = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
 
@@ -125,6 +125,11 @@ public class Vista_Profesor extends javax.swing.JFrame {
         btn_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_actualizar.setText("ACTUALIZAR");
         btn_actualizar.setActionCommand("");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarActionPerformed(evt);
+            }
+        });
 
         btn_consultar.setBackground(new java.awt.Color(138, 178, 166));
         btn_consultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -137,11 +142,11 @@ public class Vista_Profesor extends javax.swing.JFrame {
             }
         });
 
-        combo.setBackground(new java.awt.Color(204, 204, 204));
-        combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAÑANA", "TARDE", "NOCHE", "NINGUNA" }));
-        combo.addActionListener(new java.awt.event.ActionListener() {
+        box_restriccion.setBackground(new java.awt.Color(204, 204, 204));
+        box_restriccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAÑANA", "TARDE", "NOCHE", "NINGUNA" }));
+        box_restriccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboActionPerformed(evt);
+                box_restriccionActionPerformed(evt);
             }
         });
 
@@ -153,7 +158,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "nombre", "correo", "restriccion"
             }
         ));
         jScrollPane1.setViewportView(tbl);
@@ -187,7 +192,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
                                 .addComponent(edit_correo)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(combo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(box_restriccion, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
                         .addGap(32, 32, 32)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -213,7 +218,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(box_restriccion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(123, 123, 123)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,8 +264,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
         Integer.parseInt(edit_id.getText()),   
         edit_nombre.getText(),                 
         edit_correo.getText(),
-        Profesor.restriccion_horaria.values()[combo.getSelectedIndex()]
-
+        box_restriccion.getSelectedItem().toString()
     );
     }//GEN-LAST:event_btn_insertarActionPerformed
 
@@ -276,9 +280,18 @@ public class Vista_Profesor extends javax.swing.JFrame {
         vc.cambiarVista("menu");
     }//GEN-LAST:event_btn_regresarActionPerformed
 
-    private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
+    private void box_restriccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_restriccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboActionPerformed
+    }//GEN-LAST:event_box_restriccionActionPerformed
+
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+        ct.actualizar(
+        Integer.parseInt(edit_id.getText()),   
+        edit_nombre.getText(),                 
+        edit_correo.getText(),
+        box_restriccion.getSelectedItem().toString()
+    );
+    }//GEN-LAST:event_btn_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,12 +332,12 @@ public class Vista_Profesor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> box_restriccion;
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_borrar;
     private javax.swing.JButton btn_consultar;
     private javax.swing.JButton btn_insertar;
     private javax.swing.JButton btn_regresar;
-    private javax.swing.JComboBox<String> combo;
     private javax.swing.JTextField edit_correo;
     private javax.swing.JTextField edit_id;
     private javax.swing.JTextField edit_nombre;

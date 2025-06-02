@@ -12,24 +12,20 @@ public class Profesor {
     private int id;
     private String nombre;
     private String correo;
-    private restriccion_horaria restriccionHoraria;
-    
-    public enum restriccion_horaria {
-        MAÑANA, TARDE, NOCHE, NINGUNA
-    }
+    private String restriccionHoraria;
 
-    public Profesor(int id, String nombre, String correo, restriccion_horaria restriccionHoraria) {
+    public Profesor(int id, String nombre, String correo, String restriccionHoraria) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.restriccionHoraria = restriccionHoraria;
     }
 
-    public restriccion_horaria getRestriccionHoraria() {
+    public String getRestriccionHoraria() {
         return restriccionHoraria;
     }
 
-    public void setRestriccionHoraria(restriccion_horaria restriccionHoraria) {
+    public void setRestriccionHoraria(String restriccionHoraria) {
         this.restriccionHoraria = restriccionHoraria;
     }
 

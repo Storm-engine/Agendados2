@@ -26,10 +26,7 @@ public class ProfesorManager {
                 String correo = rs.getString("correo");
                 String restriccionStr = rs.getString("restriccion");
 
-                Profesor.restriccion_horaria restriccion = 
-                    Profesor.restriccion_horaria.valueOf(restriccionStr.toUpperCase());
-
-                Profesor p = new Profesor(id, nombre, correo, restriccion);
+                Profesor p = new Profesor(id, nombre, correo, restriccionStr);
                 profesores.add(p);
             }
 
@@ -49,7 +46,7 @@ public class ProfesorManager {
             ps.setInt(1, profesor.getId());
             ps.setString(2, profesor.getNombre());
             ps.setString(3, profesor.getCorreo());
-            ps.setString(4, profesor.getRestriccionHoraria().toString());
+            ps.setString(4, profesor.getRestriccionHoraria());
 
             ps.executeUpdate();
 
@@ -66,7 +63,7 @@ public class ProfesorManager {
 
             ps.setString(1, profesor.getNombre());
             ps.setString(2, profesor.getCorreo());
-            ps.setString(3, profesor.getRestriccionHoraria().toString());
+            ps.setString(3, profesor.getRestriccionHoraria());
             ps.setInt(4, profesor.getId());
 
             int filasAfectadas = ps.executeUpdate();

@@ -4,14 +4,14 @@
  */
 package com.mycompany.gestor.controladoresconsultas;
 import com.mycompany.gestor.controladores.Conexion;
-import com.mycompany.gestor.modelos.Carreras;
+import com.mycompany.gestor.modelos.Carrera;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarreraManager {
 
-    public void insertar(Carreras carrera) {
+    public void insertar(Carrera carrera) {
         String sql = "INSERT INTO carreras (nombre) VALUES (?)";
 
         try (Connection con = Conexion.getConnection();
@@ -37,8 +37,8 @@ public class CarreraManager {
         }
     }
 
-    public List<Carreras> obtenerTodas() {
-        List<Carreras> lista = new ArrayList<>();
+    public List<Carrera> obtenerTodas() {
+        List<Carrera> lista = new ArrayList<>();
         String sql = "SELECT * FROM carreras";
 
         try (Connection con = Conexion.getConnection();
@@ -48,7 +48,7 @@ public class CarreraManager {
             while (rs.next()) {
                 int idCarrera = rs.getInt("id_carrera");
                 String nombre = rs.getString("nombre");
-                lista.add(new Carreras(idCarrera, nombre));
+                lista.add(new Carrera(idCarrera, nombre));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,6 +56,20 @@ public class CarreraManager {
 
         return lista;
     }
+    
+    public void actualizar(Carrera carrera) {
+    String sql = "UPDATE carreras SET nombre = ? WHERE id_carrera = ?";
+
+    try (Connection con = Conexion.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setString(1, carrera.getNombre());
+        ps.setInt(2, carrera.getIdCarrera());
+        ps.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 }
 
 

@@ -30,7 +30,7 @@ public class ControladorVistaProfesor {
         return profesores;
     }
 
-    public void insertar(int id, String nombre, String correo, Profesor.restriccion_horaria restriccion) {
+    public void insertar(int id, String nombre, String correo, String restriccion) {
         Profesor profesor = new Profesor(id, nombre, correo, restriccion);
         pm.insertar(profesor);
     }
@@ -39,7 +39,7 @@ public class ControladorVistaProfesor {
         pm.eliminar(id);
     }
 
-    public void actualizar(int id, String nombre, String correo, Profesor.restriccion_horaria restriccion) {
+    public void actualizar(int id, String nombre, String correo, String restriccion) {
         Profesor profesor = new Profesor(id, nombre, correo, restriccion);
         pm.actualizar(profesor);
     }

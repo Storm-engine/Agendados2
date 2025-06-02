@@ -28,20 +28,21 @@ public class ControladorVistaMateria {
             modelo.addRow(new Object[]{
                 m.getId(),
                 m.getNombre(),
-                m.getCarga_horaria()
+                m.getCarga_horaria(),
+                m.getAula()
             });
         }
 
         return materias;
     }
 
-    public void insertar(String nombre, int carga_horaria) {
-        Materia m = new Materia(0, nombre, carga_horaria); // ID será autogenerado
+    public void insertar(String nombre, int carga_horaria, String aula) {
+        Materia m = new Materia(0, nombre, carga_horaria, aula); // ID será autogenerado
         mm.insertar(m);
     }
 
-    public void actualizar(int id, String nombre, int carga_horaria) {
-        Materia m = new Materia(id, nombre, carga_horaria);
+    public void actualizar(int id, String nombre, int carga_horaria, String aula) {
+        Materia m = new Materia(id, nombre, carga_horaria, aula);
         mm.actualizar(m);
     }
 

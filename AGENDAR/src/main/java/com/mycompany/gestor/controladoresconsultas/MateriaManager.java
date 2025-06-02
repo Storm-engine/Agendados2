@@ -27,7 +27,8 @@ public class MateriaManager {
                 Materia m = new Materia(
                     rs.getInt("id_materia"),
                     rs.getString("nombre"),
-                    rs.getInt("carga_horaria")
+                    rs.getInt("carga_horaria"),
+                    rs.getString("tipo_aula")
                 );
                 materias.add(m);
             }
@@ -39,13 +40,14 @@ public class MateriaManager {
     }
 
     public void insertar(Materia m) {
-        String sql = "INSERT INTO materias (nombre, carga_horaria) VALUES (?, ?)";
+        String sql = "INSERT INTO materias (nombre, carga_horaria, tipo_aula) VALUES (?, ?, ?)";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, m.getNombre());
             ps.setInt(2, m.getCarga_horaria());
+            ps.setString(3, m.getAula());
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -53,14 +55,15 @@ public class MateriaManager {
     }
 
     public void actualizar(Materia m) {
-        String sql = "UPDATE materias SET nombre = ?, carga_horaria = ? WHERE id_materia = ?";
+        String sql = "UPDATE materias SET nombre = ?, carga_horaria = ?, tipo_aula = ? WHERE id_materia = ?";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, m.getNombre());
             ps.setInt(2, m.getCarga_horaria());
-            ps.setInt(3, m.getId());
+            ps.setString(3, m.getAula());
+            ps.setInt(4, m.getId());
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

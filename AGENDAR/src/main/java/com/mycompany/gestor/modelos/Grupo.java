@@ -10,24 +10,36 @@ package com.mycompany.gestor.modelos;
  */
 public class Grupo {
     private int idGrupo;
-    private Materia materia;
-    private Profesor profesor;
+    private int idMateria;
+    private int idProfesor;
 
-    public Grupo(int idGrupo, Materia materia, Profesor profesor) {
+    public Grupo(int idGrupo, int idMateria, int idProfesor) {
         this.idGrupo = idGrupo;
-        this.materia = materia;
-        this.profesor = profesor;
+        this.idMateria = idMateria;
+        this.idProfesor = idProfesor;
     }
 
     public int getIdGrupo() {
         return idGrupo;
     }
 
-    public Materia getMateria() {
-        return materia;
+    public int getIdMateria() {
+        return idMateria;
     }
 
-    public Profesor getProfesor() {
-        return profesor;
+    public int getIdProfesor() {
+        return idProfesor;
+    }
+
+    public void setIdGrupo(int idGrupo) {
+        this.idGrupo = idGrupo;
+    }
+
+    public void setIdMateria(int idMateria) {
+        this.idMateria = idMateria;
+    }
+
+    public void setIdProfesor(int idProfesor) {
+        this.idProfesor = idProfesor;
     }
 }

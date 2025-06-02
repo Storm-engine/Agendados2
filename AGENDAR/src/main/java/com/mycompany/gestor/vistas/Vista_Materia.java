@@ -44,9 +44,11 @@ public class Vista_Materia extends javax.swing.JFrame {
         btn_borrar = new javax.swing.JButton();
         btn_actualizar = new javax.swing.JButton();
         btn_consultar = new javax.swing.JButton();
-        slide_carga = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
+        box_horas = new javax.swing.JComboBox<>();
+        lbl_carga1 = new javax.swing.JLabel();
+        box_aula = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,7 +84,7 @@ public class Vista_Materia extends javax.swing.JFrame {
 
         lbl_carga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_carga.setForeground(new java.awt.Color(202, 210, 197));
-        lbl_carga.setText("CARGA HORARIA: 2 horas");
+        lbl_carga.setText("CARGA HORARIA: (horas)");
 
         btn_regresar.setBackground(new java.awt.Color(53, 79, 82));
         btn_regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -137,31 +139,22 @@ public class Vista_Materia extends javax.swing.JFrame {
             }
         });
 
-        slide_carga.setMaximum(6);
-        slide_carga.setMinimum(2);
-        slide_carga.setValue(2);
-        slide_carga.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                slide_cargaStateChanged(evt);
-            }
-        });
-
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "NOMBRE", "CARGA HORARIA"
+                "ID", "NOMBRE", "CARGA HORARIA", "Aula Requerida"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -173,6 +166,24 @@ public class Vista_Materia extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tbl);
+
+        box_horas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "4", "6" }));
+        box_horas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                box_horasActionPerformed(evt);
+            }
+        });
+
+        lbl_carga1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_carga1.setForeground(new java.awt.Color(202, 210, 197));
+        lbl_carga1.setText("CARGA HORARIA: (horas)");
+
+        box_aula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "COMUN", "INFORMATICA", "LABORATORIO" }));
+        box_aula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                box_aulaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -195,16 +206,16 @@ public class Vista_Materia extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(edit_id, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(edit_nombre)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(slide_carga, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbl_carga, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                                .addComponent(lbl_carga, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                                .addComponent(box_horas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_carga1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))
+                            .addComponent(box_aula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,18 +233,20 @@ public class Vista_Materia extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lbl_carga, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(slide_carga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(box_horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_carga1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(box_aula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -275,17 +288,13 @@ public class Vista_Materia extends javax.swing.JFrame {
 
     private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
-        ct.insertar(edit_nombre.getText(), slide_carga.getValue());
+        ct.insertar(edit_nombre.getText(), Integer.parseInt(box_horas.getSelectedItem().toString()), box_aula.getSelectedItem().toString());
 
     }//GEN-LAST:event_btn_insertarActionPerformed
 
     private void edit_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_nombreActionPerformed
         
     }//GEN-LAST:event_edit_nombreActionPerformed
-
-    private void slide_cargaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slide_cargaStateChanged
-        lbl_carga.setText("CARGA HORARIA: " + String.valueOf(slide_carga.getValue()) + " horas");
-    }//GEN-LAST:event_slide_cargaStateChanged
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         vc.cambiarVista("menu");
@@ -296,8 +305,19 @@ public class Vista_Materia extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_borrarActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        ct.actualizar(Integer.parseInt(edit_id.getText()), edit_nombre.getText(), slide_carga.getValue());
+        ct.actualizar(Integer.parseInt(edit_id.getText()), 
+                edit_nombre.getText(), 
+                Integer.parseInt(box_horas.getSelectedItem().toString()), 
+                box_aula.getSelectedItem().toString());
     }//GEN-LAST:event_btn_actualizarActionPerformed
+
+    private void box_horasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_horasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_box_horasActionPerformed
+
+    private void box_aulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_aulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_box_aulaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -338,6 +358,8 @@ public class Vista_Materia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> box_aula;
+    private javax.swing.JComboBox<String> box_horas;
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_borrar;
     private javax.swing.JButton btn_consultar;
@@ -352,7 +374,7 @@ public class Vista_Materia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_carga;
-    public javax.swing.JSlider slide_carga;
+    private javax.swing.JLabel lbl_carga1;
     public javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 }

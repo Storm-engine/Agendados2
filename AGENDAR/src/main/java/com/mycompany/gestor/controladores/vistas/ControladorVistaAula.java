@@ -27,15 +27,16 @@ public class ControladorVistaAula {
             modelo.addRow(new Object[]{
                 aula.getIdAula(),
                 aula.getTipoAula(),
-                aula.getCapacidad()
+                aula.getCapacidad(),
+                aula.getNombre()  // Mostrar nombre en la tabla
             });
         }
 
         return aulas;
     }
 
-    public void insertar(int idAula, Aula.TipoAula tipoAula, int capacidad) {
-        Aula aula = new Aula(idAula, tipoAula, capacidad);
+    public void insertar(int idAula, String tipoAula, int capacidad, String nombre) {
+        Aula aula = new Aula(idAula, tipoAula, capacidad, nombre);
         aulaManager.insertar(aula);
     }
 

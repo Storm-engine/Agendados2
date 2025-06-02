@@ -8,11 +8,11 @@ package com.mycompany.gestor.modelos;
  *
  * @author EQUIPO1
  */
-public class Carreras {
+public class Carrera  {
     private int idCarrera;
     private String nombre;
 
-    public Carreras(int idCarrera, String nombre) {
+    public Carrera(int idCarrera, String nombre) {
         this.idCarrera = idCarrera;
         this.nombre = nombre;
     }

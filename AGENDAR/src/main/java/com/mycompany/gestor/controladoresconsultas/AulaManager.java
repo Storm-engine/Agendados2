@@ -30,10 +30,11 @@ public class AulaManager {
 
             while (rs.next()) {
                 int id = rs.getInt("id_aula");
-                Aula.TipoAula tipo = Aula.TipoAula.valueOf(rs.getString("tipo_aula").toUpperCase());
+                String tipo = rs.getString("tipo_aula");
                 int capacidad = rs.getInt("capacidad");
+                String nombre = rs.getString("nombre");
 
-                aulas.add(new Aula(id, tipo, capacidad));
+                aulas.add(new Aula(id, tipo, capacidad, nombre));
             }
 
         } catch (SQLException ex) {
@@ -44,13 +45,14 @@ public class AulaManager {
     }
 
     public void insertar(Aula aula) {
-        String sql = "INSERT INTO aulas (tipo_aula, capacidad) VALUES (?, ?)";
+        String sql = "INSERT INTO aulas (tipo_aula, capacidad, nombre) VALUES (?, ?, ?)";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, aula.getTipoAula().name().toLowerCase());
+            ps.setString(1, aula.getTipoAula());
             ps.setInt(2, aula.getCapacidad());
+            ps.setString(3, aula.getNombre());
             ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -59,14 +61,15 @@ public class AulaManager {
     }
 
     public void actualizar(Aula aula) {
-        String sql = "UPDATE aulas SET tipo_aula = ?, capacidad = ? WHERE id_aula = ?";
+        String sql = "UPDATE aulas SET tipo_aula = ?, capacidad = ?, nombre = ? WHERE id_aula = ?";
 
         try (Connection con = Conexion.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, aula.getTipoAula().name().toLowerCase());
+            ps.setString(1, aula.getTipoAula());
             ps.setInt(2, aula.getCapacidad());
-            ps.setInt(3, aula.getIdAula());
+            ps.setString(3, aula.getNombre());
+            ps.setInt(4, aula.getIdAula());
             ps.executeUpdate();
 
         } catch (SQLException ex) {
