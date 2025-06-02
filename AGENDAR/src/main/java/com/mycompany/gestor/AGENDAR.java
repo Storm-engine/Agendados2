@@ -13,8 +13,6 @@ public class AGENDAR {
         ViewController vc = ViewController.get_instance();
         vc.inicializar();
         vc.cambiarVista("menu");
-        GeneradorHorario gh = new GeneradorHorario();
-        gh.generarHorarios();
     }
     
     

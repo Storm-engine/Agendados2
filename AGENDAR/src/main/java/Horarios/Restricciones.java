@@ -19,30 +19,29 @@ public class Restricciones {
 
     /**
      * Construye un Map<idProfesor, boolean[36]> que marca con true los bloques NO disponibles
-     * según la restricción “mañana” / “tarde” / “ninguna”.
+     * según la restricción “mañana” / “tarde” / “ninguna” (campo “restriccion” en la tabla).
      */
     public static Map<Integer, boolean[]> obtenerDisponibilidadProfesores(Connection conn) throws SQLException {
         Map<Integer, boolean[]> disponibilidad = new HashMap<>();
 
-        String sql = "SELECT id_profesor, nombre, restriccion FROM profesores";
+        String sql = "SELECT id_profesor, restriccion FROM profesores";
         try (Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
                 int id = rs.getInt("id_profesor");
                 String restriccion = rs.getString("restriccion").toLowerCase().trim();
-                // Creamos el arreglo de 36 bloques (todos inicialmente false = disponibles)
-                boolean[] bloques = new boolean[36];
+                boolean[] bloques = new boolean[36]; // false = disponible
 
                 for (int dia = 0; dia < 6; dia++) {
                     for (int hora = 0; hora < 6; hora++) {
                         int idx = dia * 6 + hora;
                         if (restriccion.equals("mañana") && hora >= 3) {
-                            bloques[idx] = true; // Bloques de la tarde ocupados
+                            bloques[idx] = true; // bloque de tarde no disponible
                         } else if (restriccion.equals("tarde") && hora < 3) {
-                            bloques[idx] = true; // Bloques de la mañana ocupados
+                            bloques[idx] = true; // bloque de mañana no disponible
                         }
-                        // “ninguna” deja todo en false (disponible)
+                        // “ninguna” → todos false
                     }
                 }
 
@@ -55,7 +54,6 @@ public class Restricciones {
 
     /**
      * Construye un Map<idAula, boolean[36]> marcando todos los bloques inicialmente como libres (false).
-     * Más adelante, al asignar un grupo a un bloque, habrá que poner true en el bloque correspondiente.
      */
     public static Map<Integer, boolean[]> obtenerDisponibilidadAulas(Connection conn) throws SQLException {
         Map<Integer, boolean[]> disponibilidad = new HashMap<>();
@@ -67,7 +65,6 @@ public class Restricciones {
             while (rs.next()) {
                 int idAula = rs.getInt("id_aula");
                 disponibilidad.put(idAula, new boolean[36]);
-                // Por defecto, todo queda false = disponible
             }
         }
 
@@ -76,7 +73,6 @@ public class Restricciones {
 
     /**
      * Construye un Map<idEstudiante, boolean[36]> marcando todos los bloques inicialmente como libres (false).
-     * Cada vez que asignemos al estudiante una clase en un bloque, habrá que poner true en esa posición.
      */
     public static Map<Integer, boolean[]> obtenerDisponibilidadEstudiantes(Connection conn) throws SQLException {
         Map<Integer, boolean[]> disponibilidad = new HashMap<>();
@@ -93,10 +89,4 @@ public class Restricciones {
 
         return disponibilidad;
     }
-
-    /**
-     * Optional: si alguna materia requiere tipo de aula concreto, 
-     * podrías filtrar en GeneradorHorario para asignar solo las aulas cuyo tipo coincida con materia.tipoAula.
-     * Por simplicidad, esta clase no lo contempla aquí.
-     */
 }

@@ -5,6 +5,7 @@
 package com.mycompany.gestor.vistas;
 
 
+import Horarios.GeneradorHorario;
 import com.mycompany.gestor.controladores.ViewController;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
 
@@ -42,6 +43,7 @@ public class Vista_Menu extends javax.swing.JFrame {
         btn_carreras = new javax.swing.JButton();
         btn_grupos = new javax.swing.JButton();
         btn_aula = new javax.swing.JButton();
+        btn_horarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,6 +137,15 @@ public class Vista_Menu extends javax.swing.JFrame {
             }
         });
 
+        btn_horarios.setBackground(new java.awt.Color(252, 163, 17));
+        btn_horarios.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_horarios.setText("Generar horarios");
+        btn_horarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_horariosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -163,10 +174,14 @@ public class Vista_Menu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_carreras, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(288, 288, 288)
                 .addComponent(btn_aula, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(289, 289, 289))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_horarios, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(287, 287, 287))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +190,9 @@ public class Vista_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(22, 22, 22)
+                .addComponent(btn_aula)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_profesores)
                     .addComponent(btn_unir))
@@ -188,7 +205,7 @@ public class Vista_Menu extends javax.swing.JFrame {
                     .addComponent(btn_estudiantes)
                     .addComponent(btn_grupos))
                 .addGap(18, 18, 18)
-                .addComponent(btn_aula)
+                .addComponent(btn_horarios)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -253,6 +270,11 @@ public class Vista_Menu extends javax.swing.JFrame {
         vc.cambiarVista("aula");
     }//GEN-LAST:event_btn_aulaActionPerformed
 
+    private void btn_horariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_horariosActionPerformed
+        GeneradorHorario gh = new GeneradorHorario();
+        gh.generarHorarios();
+    }//GEN-LAST:event_btn_horariosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +330,7 @@ public class Vista_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_carreras;
     private javax.swing.JButton btn_estudiantes;
     private javax.swing.JButton btn_grupos;
+    private javax.swing.JButton btn_horarios;
     private javax.swing.JButton btn_materias;
     private javax.swing.JButton btn_profesores;
     private javax.swing.JButton btn_unir;
