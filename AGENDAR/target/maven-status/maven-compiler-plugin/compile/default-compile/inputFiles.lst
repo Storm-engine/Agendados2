@@ -1,5 +1,6 @@
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\CarreraMateriaManager.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Materia.java
+C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Horarios.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_MateriasCarreras.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Profesor.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\AulaManager.java
@@ -18,11 +19,13 @@ C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\ges
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Estudiante.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\GrupoManager.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\MateriaManager.java
+C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Horario.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\CarreraManager.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Aula.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Carreras.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Grupo.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Materia.java
+C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaHorario.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\GrupoHorario.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Profesor.java
 C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\CarreraMateria.java

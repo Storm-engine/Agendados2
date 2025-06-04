@@ -10,10 +10,12 @@ com\mycompany\gestor\vistas\Vista_Profesor$8.class
 com\mycompany\gestor\vistas\Vista_Menu$2.class
 com\mycompany\gestor\vistas\Vista_Estudiante$1.class
 com\mycompany\gestor\vistas\Vista_Menu$8.class
+com\mycompany\gestor\vistas\Vista_Horarios$3.class
 com\mycompany\gestor\vistas\Vista_Aula$2.class
 com\mycompany\gestor\vistas\Vista_Grupos$2.class
 com\mycompany\gestor\vistas\Vista_Grupos$5.class
 com\mycompany\gestor\vistas\Vista_Aula.class
+com\mycompany\gestor\vistas\Vista_Horarios$1.class
 com\mycompany\gestor\modelos\Grupo.class
 com\mycompany\gestor\controladoresconsultas\MateriaManager.class
 Horarios\GeneradorHorario.class
@@ -39,6 +41,9 @@ com\mycompany\gestor\vistas\Vista_Grupos$7.class
 com\mycompany\gestor\vistas\Vista_Aula$7.class
 com\mycompany\gestor\vistas\Vista_Grupos$3.class
 com\mycompany\gestor\vistas\Vista_Materia$9.class
+com\mycompany\gestor\vistas\Vista_Horarios.class
+com\mycompany\gestor\vistas\Vista_Horarios$2.class
+com\mycompany\gestor\vistas\Vista_Menu$10.class
 com\mycompany\gestor\controladores\vistas\ControladorVistaGrupo.class
 com\mycompany\gestor\modelos\Materia.class
 com\mycompany\gestor\vistas\Vista_Grupos$6.class
@@ -65,12 +70,14 @@ com\mycompany\gestor\vistas\Vista_MateriasCarreras$7.class
 com\mycompany\gestor\modelos\GrupoHorario.class
 com\mycompany\gestor\vistas\Vista_Menu$7.class
 com\mycompany\gestor\modelos\Bloque.class
+com\mycompany\gestor\vistas\Vista_Horarios$4.class
 com\mycompany\gestor\vistas\Vista_Aula$5.class
 com\mycompany\gestor\vistas\Vista_Estudiante$3.class
 com\mycompany\gestor\controladores\vistas\ControladorVistaAula.class
 com\mycompany\gestor\controladoresconsultas\GrupoManager.class
 com\mycompany\gestor\vistas\Vista_Estudiante$4.class
 com\mycompany\gestor\vistas\Vista_MateriasCarreras$8.class
+com\mycompany\gestor\vistas\Vista_Horarios$5.class
 com\mycompany\gestor\vistas\Vista_Materia$4.class
 Horarios\Restricciones.class
 com\mycompany\gestor\controladores\vistas\ControladorVistaCarreraMateria.class
@@ -78,6 +85,7 @@ com\mycompany\gestor\controladoresconsultas\CarreraManager.class
 com\mycompany\gestor\vistas\Vista_Carreras$5.class
 com\mycompany\gestor\vistas\Vista_Grupos$4.class
 com\mycompany\gestor\vistas\Vista_Aula$4.class
+com\mycompany\gestor\modelos\Horario.class
 com\mycompany\gestor\modelos\CarreraMateria.class
 com\mycompany\gestor\vistas\Vista_Carreras.class
 com\mycompany\gestor\controladores\vistas\ControladorVistaMateria.class
@@ -90,4 +98,5 @@ com\mycompany\gestor\vistas\Vista_MateriasCarreras$2.class
 com\mycompany\gestor\vistas\Vista_Materia$5.class
 com\mycompany\gestor\controladores\vistas\ControladorVistaCarrera.class
 com\mycompany\gestor\controladores\ControladorLogin.class
+com\mycompany\gestor\controladores\vistas\ControladorVistaHorario.class
 com\mycompany\gestor\vistas\Vista_Menu$6.class

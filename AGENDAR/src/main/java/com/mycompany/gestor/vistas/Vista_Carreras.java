@@ -12,7 +12,7 @@ import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
 
 /**
  *
- * @author EQUIPO1
+ * @author USER
  */
 public class Vista_Carreras extends javax.swing.JFrame {
     ViewController vc = ViewController.get_instance();
