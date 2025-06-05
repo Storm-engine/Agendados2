@@ -7,6 +7,7 @@ package com.mycompany.gestor.controladores;
 import com.mycompany.gestor.modelos.GrupoHorario;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,12 +16,28 @@ import java.util.List;
 
 public class Conexion {
     private static Connection connection;
+    private static String tipoBD = "mysql"; 
+
+    public static void setTipoBD(String tipo) {
+        tipoBD = tipo.toLowerCase(); 
+        connection = null; 
+    }
 
     public static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection("jdbc:sqlite:db/mi_base.db");
+            switch (tipoBD) {
+                case "sqlite":
+                    connection = DriverManager.getConnection("jdbc:sqlite:db/mi_base.db");
+                    break;
+                case "mysql":
+                    String url = "jdbc:mysql://localhost:3306/horario";
+                    String user = "root";
+                    String password = "admin";
+                    connection = DriverManager.getConnection(url, user, password);
+                    break;
+            }
         }
-        
+
         return connection;
     }
     

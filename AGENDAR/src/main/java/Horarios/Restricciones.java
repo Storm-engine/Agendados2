@@ -37,9 +37,12 @@ public class Restricciones {
                     for (int hora = 0; hora < 6; hora++) {
                         int idx = dia * 6 + hora;
                         if (restriccion.equals("mañana") && hora >= 3) {
-                            bloques[idx] = true; // bloque de tarde no disponible
-                        } else if (restriccion.equals("tarde") && hora < 3) {
-                            bloques[idx] = true; // bloque de mañana no disponible
+                            bloques[idx] = true; // solo trabaja en la mañana
+                        } else if (restriccion.equals("tarde") && hora < 3 && hora >= 5) {
+                            bloques[idx] = true; // solo trabaja en la tarde
+                        }
+                        else if (restriccion.equals("noche") && hora <= 5) {
+                            bloques[idx] = true; // solo trabaja en la noche
                         }
                         // “ninguna” → todos false
                     }

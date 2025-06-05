@@ -92,7 +92,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(172, 211, 168));
-        jLabel5.setText("Restriccion horaria");
+        jLabel5.setText("Preferencia horaria");
 
         btn_regresar.setBackground(new java.awt.Color(138, 178, 166));
         btn_regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
