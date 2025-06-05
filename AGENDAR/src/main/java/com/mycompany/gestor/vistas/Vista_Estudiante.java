@@ -26,7 +26,8 @@ public class Vista_Estudiante extends javax.swing.JFrame {
      * Creates new form LogIn
      */
     public Vista_Estudiante() {
-        initComponents();        
+        initComponents();    
+        ct.llenarTablaConConsulta(tbl);
     }
 
     /**

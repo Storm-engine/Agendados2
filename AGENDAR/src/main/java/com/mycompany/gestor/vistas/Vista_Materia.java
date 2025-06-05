@@ -19,7 +19,8 @@ public class Vista_Materia extends javax.swing.JFrame {
      * Creates new form LogIn
      */
     public Vista_Materia() {
-        initComponents();        
+        initComponents(); 
+        ct.consultar(tbl);
     }
 
     /**

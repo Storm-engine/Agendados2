@@ -21,7 +21,8 @@ public class Vista_Carreras extends javax.swing.JFrame {
      * Creates new form LogIn
      */
     public Vista_Carreras() {
-        initComponents();        
+        initComponents();  
+        ct.consultar(tbl);
     }
 
     /**
