@@ -14,18 +14,37 @@ import javax.swing.table.DefaultTableModel;
  */
 
 public class ControladorVistaHorario {
-    public void llenarHorario(JTable tabla, int id, String categoria) {
+public void llenarHorario(JTable tabla, int id, String categoria) {
     String sql = "";
 
     if (categoria.equals("Estudiante")) {
-        sql = "SELECT horarios.*, estudiante_grupos.id_estudiante " +
+        sql = "SELECT horarios.id_horario, materias.nombre AS materia, profesores.nombre AS profesor, " +
+              "aulas.nombre AS aula, horarios.id_grupo, horarios.dia_semana, horarios.hora_inicio, horarios.hora_fin, " +
+              "estudiantes.nombre AS estudiante " +
               "FROM horarios " +
-              "INNER JOIN estudiante_grupos ON estudiante_grupos.id_grupo = horarios.id_grupo " +
-              "WHERE estudiante_grupos.id_estudiante = ?";
+              "INNER JOIN materias ON horarios.id_materia = materias.id_materia " +
+              "INNER JOIN profesores ON horarios.id_profesor = profesores.id_profesor " +
+              "INNER JOIN aulas ON horarios.id_aula = aulas.id_aula " +
+              "INNER JOIN grupos ON horarios.id_grupo = grupos.id_grupo " +
+              "INNER JOIN estudiante_grupos ON grupos.id_grupo = estudiante_grupos.id_grupo " +
+              "INNER JOIN estudiantes ON estudiante_grupos.id_estudiante = estudiantes.id_estudiante " +
+              "WHERE estudiantes.id_estudiante = ?";
     } else if (categoria.equals("Profesor")) {
-        sql = "SELECT * FROM horarios WHERE horarios.id_profesor = ?";
+        sql = "SELECT horarios.id_horario, materias.nombre AS materia, profesores.nombre AS profesor, " +
+              "aulas.nombre AS aula, horarios.id_grupo, horarios.dia_semana, horarios.hora_inicio, horarios.hora_fin " +
+              "FROM horarios " +
+              "INNER JOIN materias ON horarios.id_materia = materias.id_materia " +
+              "INNER JOIN profesores ON horarios.id_profesor = profesores.id_profesor " +
+              "INNER JOIN aulas ON horarios.id_aula = aulas.id_aula " +
+              "WHERE profesores.id_profesor = ?";
     } else if (categoria.equals("Aula")) {
-        sql = "SELECT * FROM horarios WHERE horarios.id_aula = ?";
+        sql = "SELECT horarios.id_horario, materias.nombre AS materia, profesores.nombre AS profesor, " +
+              "aulas.nombre AS aula, horarios.id_grupo, horarios.dia_semana, horarios.hora_inicio, horarios.hora_fin " +
+              "FROM horarios " +
+              "INNER JOIN materias ON horarios.id_materia = materias.id_materia " +
+              "INNER JOIN profesores ON horarios.id_profesor = profesores.id_profesor " +
+              "INNER JOIN aulas ON horarios.id_aula = aulas.id_aula " +
+              "WHERE aulas.id_aula = ?";
     }
 
     DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -40,15 +59,15 @@ public class ControladorVistaHorario {
         while (rs.next()) {
             modelo.addRow(new Object[]{
                 rs.getInt("id_horario"),
-                rs.getInt("id_materia"),
-                rs.getInt("id_profesor"),
-                rs.getInt("id_aula"),
+                rs.getString("materia"),
+                rs.getString("profesor"),
+                rs.getString("aula"),
                 rs.getInt("id_grupo"),
                 rs.getString("dia_semana"),
                 rs.getString("hora_inicio"),
                 rs.getString("hora_fin"),
-                categoria.equals("Estudiante") ? rs.getInt("id_estudiante") : null,
-                rs.getInt("id_grupo") 
+                categoria.equals("Estudiante") ? rs.getString("estudiante") : null,
+                
             });
         }
 
