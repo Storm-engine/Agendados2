@@ -14,7 +14,6 @@ import com.mycompany.gestor.controladoresconsultas.ProfesorManager;
 import com.mycompany.gestor.modelos.Grupo;
 import com.mycompany.gestor.modelos.Materia;
 import com.mycompany.gestor.modelos.Profesor;
-import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;

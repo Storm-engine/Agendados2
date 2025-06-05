@@ -8,7 +8,6 @@ import com.mycompany.gestor.controladores.Conexion;
 import com.mycompany.gestor.controladoresconsultas.EstudianteManager;
 import com.mycompany.gestor.modelos.Estudiante;
 import java.sql.*;
-import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
