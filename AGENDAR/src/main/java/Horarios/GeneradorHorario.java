@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -121,7 +122,7 @@ public class GeneradorHorario {
             int idProfesor = rs.getInt("id_profesor");
             int cargaHoraria = rs.getInt("carga_horaria");
 
-            // Cargar lista de estudiantes del grupo
+            
             List<Integer> idEstudiantes = new ArrayList<>();
             PreparedStatement estStmt = conn.prepareStatement(
                 "SELECT id_estudiante FROM estudiante_grupos WHERE id_grupo = ?"
@@ -138,7 +139,7 @@ public class GeneradorHorario {
         return grupos;
     }
 
-    /** Carga todas las aulas con su tipo y capacidad. */
+    /** Carga la capacidad de las aulas */
     public List<Aula> cargarAulas(Connection conn) throws SQLException {
         List<Aula> aulas = new ArrayList<>();
         String sql = "SELECT id_aula, tipo_aula, capacidad, nombre FROM aulas";
@@ -157,7 +158,7 @@ public class GeneradorHorario {
         return aulas;
     }
 
-    /** Carga todas las materias con su tipo de aula y carga horaria. */
+    /** Carga todas las materias con su tipo de aula y carga horaria */
     public Map<Integer, Materia> cargarMaterias(Connection conn) throws SQLException {
         Map<Integer, Materia> materias = new HashMap<>();
         String sql = "SELECT id_materia, nombre, carga_horaria, tipo_aula FROM materias";
@@ -179,7 +180,7 @@ public class GeneradorHorario {
         return materias;
     }
 
-    /** Carga todos los profesores con su restricción (“mañana”, “tarde” o “ninguna”). */
+    /** Carga todos los profesores con sus preferencias */
     public Map<Integer, Profesor> cargarProfesores(Connection conn) throws SQLException {
         Map<Integer, Profesor> profesores = new HashMap<>();
         String sql = "SELECT id_profesor, nombre, correo, restriccion FROM profesores";
@@ -201,33 +202,38 @@ public class GeneradorHorario {
         return profesores;
     }
 
-    /**
-     * Arma el horario: recorre cada grupo y asigna los bloques necesarios,
-     * asegurando que el grupo tenga a lo sumo una clase por día.
-     */
+ /**
+ * Genera automáticamente los horarios de clases eliminando los anteriores, 
+ * asignando bloques disponibles a cada grupo según disponibilidad de profesores, 
+ * estudiantes y aulas, y guardándolos en la base de datos.
+ */
     public void generarHorarios() {
         try (Connection conn = Conexion.getConnection()) {
+            // Esta función genera e inserta automáticamente los horarios de clases,
+            // asegurándose de que no haya conflictos entre profesores, estudiantes ni aulas.
+
+            // Paso 0: Limpiamos los horarios anteriores
             PreparedStatement deleteStmt = conn.prepareStatement("DELETE FROM Horarios");
             deleteStmt.executeUpdate();
             deleteStmt.close();
             conn.setAutoCommit(false);
 
-            // 1) Asegurarse de que cada estudiante está en los grupos correspondientes
+            // Paso 1: Verificamos que todos los estudiantes estén asignados a sus grupos
             asignarGruposFaltantes(conn);
 
-            // 2) Cargar estructuras
+            // Paso 2: Cargamos todos los datos necesarios del sistema
             List<Bloque> bloques = generarBloques();
             List<GrupoHorario> grupos = cargarGrupos(conn);
             List<Aula> aulas = cargarAulas(conn);
             Map<Integer, Materia> mapaMaterias = cargarMaterias(conn);
             Map<Integer, Profesor> mapaProfesores = cargarProfesores(conn);
 
-            // 3) Disponibilidades iniciales (false = libre)
+            // Paso 3: Obtenemos la disponibilidad inicial de profesores, aulas y estudiantes
             Map<Integer, boolean[]> dispProfesores = Restricciones.obtenerDisponibilidadProfesores(conn);
             Map<Integer, boolean[]> dispAulas = Restricciones.obtenerDisponibilidadAulas(conn);
             Map<Integer, boolean[]> dispEstudiantes = Restricciones.obtenerDisponibilidadEstudiantes(conn);
 
-            // 4) Preparar INSERT en “horarios”
+            // Paso 4: Preparamos el INSERT para guardar los horarios en la base de datos
             String insertHorario = """
                 INSERT INTO horarios (
                   id_materia,
@@ -241,7 +247,7 @@ public class GeneradorHorario {
             """;
             PreparedStatement psInsert = conn.prepareStatement(insertHorario);
 
-            // 5) Algoritmo de asignación mejorado
+            // Paso 5: Intentamos asignar bloques a cada grupo de forma ordenada
             for (GrupoHorario g : grupos) {
                 int idGrupo = g.getIdGrupo();
                 Materia mat = mapaMaterias.get(g.getIdMateria());
@@ -249,23 +255,15 @@ public class GeneradorHorario {
                 int bloquesNecesarios = g.getBloquesNecesarios();
                 List<Integer> idsEstudiantes = g.getEstudiantes();
 
-                // Llevamos registro de qué días ya tienen clase para este grupo
                 Set<Integer> diasOcupadosPorGrupo = new HashSet<>();
-
-                // Lista de pares (bloqueId, idAula) asignados
                 List<int[]> asignacionesDeGrupo = new ArrayList<>();
 
-                // Intentamos asignar X bloques
                 for (int bloqueId = 0; bloqueId < 36 && asignacionesDeGrupo.size() < bloquesNecesarios; bloqueId++) {
                     Bloque b = bloques.get(bloqueId);
 
-                    // --- 5.1) El grupo no debe tener ya una clase en ese día:
                     if (diasOcupadosPorGrupo.contains(b.getDia())) continue;
-
-                    // --- 5.2) Verificar disponibilidad del profesor:
                     if (dispProfesores.get(prof.getId())[bloqueId]) continue;
 
-                    // --- 5.3) Verificar disponibilidad de TODOS los estudiantes
                     boolean cupoEstudiantesOk = true;
                     for (Integer idEst : idsEstudiantes) {
                         if (dispEstudiantes.get(idEst)[bloqueId]) {
@@ -275,18 +273,15 @@ public class GeneradorHorario {
                     }
                     if (!cupoEstudiantesOk) continue;
 
-                    // --- 5.4) Buscar un aula valida y libre en este bloque
                     Integer aulaAsignada = null;
                     for (Aula aula : aulas) {
                         if (!aula.getTipoAula().equals(mat.getAula())) continue;
                         if (dispAulas.get(aula.getIdAula())[bloqueId]) continue;
-                        // Si necesitas considerar capacidad, aquí podrías hacerlo
                         aulaAsignada = aula.getIdAula();
                         break;
                     }
                     if (aulaAsignada == null) continue;
 
-                    // --- 5.5) Asignar bloque: marcar ocupado y guardar en la lista
                     asignacionesDeGrupo.add(new int[]{bloqueId, aulaAsignada});
                     diasOcupadosPorGrupo.add(b.getDia());
 
@@ -298,14 +293,15 @@ public class GeneradorHorario {
                 }
 
                 if (asignacionesDeGrupo.size() < bloquesNecesarios) {
-                    System.out.println("No se pudieron asignar todos los bloques para el grupo " + idGrupo
-                                       + " (necesita " + bloquesNecesarios + ")");
+                    JOptionPane.showMessageDialog(null,
+                        "No se pudieron asignar todos los bloques para el grupo " + idGrupo +
+                        " (necesita " + bloquesNecesarios + ")",
+                        "Advertencia", JOptionPane.WARNING_MESSAGE);
                 }
 
-                // 6) Insertar los bloques asignados en la base de datos para este grupo
                 for (int[] par : asignacionesDeGrupo) {
                     int bloqueId = par[0];
-                    int idAula   = par[1];
+                    int idAula = par[1];
                     Bloque b = bloques.get(bloqueId);
 
                     psInsert.setInt(1, mat.getId());
@@ -323,9 +319,14 @@ public class GeneradorHorario {
             }
 
             conn.commit();
-            System.out.println("Horarios generados e insertados correctamente.");
+            JOptionPane.showMessageDialog(null,
+                "Horarios generados e insertados correctamente.",
+                "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null,
+                "Ocurrió un error al generar los horarios:\n" + e.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
