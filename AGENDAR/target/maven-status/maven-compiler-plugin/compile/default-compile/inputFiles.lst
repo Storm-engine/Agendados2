@@ -1,40 +1,41 @@
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\CarreraMateriaManager.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Materia.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Horarios.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_MateriasCarreras.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Profesor.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\AulaManager.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\ControladorLogin.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaAula.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaGrupo.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaMateria.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Carrera.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaCarreraMateria.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Grupos.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\EstudianteManager.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\Conexion.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\ProfesorManager.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Aula.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaCarrera.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Estudiante.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\GrupoManager.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\MateriaManager.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Horario.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\CarreraManager.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Aula.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Carreras.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Grupo.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Materia.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaHorario.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\GrupoHorario.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Profesor.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\CarreraMateria.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Menu.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\Horarios\GeneradorHorario.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\AGENDAR.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\ViewController.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Bloque.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\Horarios\Restricciones.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Estudiante.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaProfesor.java
-C:\Users\USER\Desktop\cositas\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaEstudiante.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\AGENDAR.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\Conexion.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\ControladorLogin.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\ViewController.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaAula.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaCarrera.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaCarreraMateria.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaEstudiante.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaGrupo.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaHorario.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaMateria.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladores\vistas\ControladorVistaProfesor.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\AulaManager.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\CarreraManager.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\CarreraMateriaManager.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\EstudianteManager.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\GrupoManager.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\MateriaManager.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\controladoresconsultas\ProfesorManager.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Aula.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Bloque.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Carrera.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\CarreraMateria.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Estudiante.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Grupo.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\GrupoHorario.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Horario.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Materia.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\modelos\Profesor.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Aula.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Carreras.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Estudiante.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Grupos.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Horarios.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Materia.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_MateriasCarreras.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Menu.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\com\mycompany\gestor\vistas\Vista_Profesor.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\Horarios\ExportadorPDF.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\Horarios\GeneradorHorario.java
+C:\Users\Sergio David\Desktop\Agendados2\AGENDAR\src\main\java\Horarios\Restricciones.java

@@ -275,7 +275,7 @@ public class GeneradorHorario {
                     }
                     if (!cupoEstudiantesOk) continue;
 
-                    // --- 5.4) Buscar un aula válida y libre en este bloque
+                    // --- 5.4) Buscar un aula valida y libre en este bloque
                     Integer aulaAsignada = null;
                     for (Aula aula : aulas) {
                         if (!aula.getTipoAula().equals(mat.getAula())) continue;
@@ -302,7 +302,7 @@ public class GeneradorHorario {
                                        + " (necesita " + bloquesNecesarios + ")");
                 }
 
-                // 6) Insertar en BD los bloques asignados para este grupo
+                // 6) Insertar los bloques asignados en la base de datos para este grupo
                 for (int[] par : asignacionesDeGrupo) {
                     int bloqueId = par[0];
                     int idAula   = par[1];

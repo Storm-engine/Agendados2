@@ -14,6 +14,7 @@ com\mycompany\gestor\vistas\Vista_Horarios$3.class
 com\mycompany\gestor\vistas\Vista_Aula$2.class
 com\mycompany\gestor\vistas\Vista_Grupos$2.class
 com\mycompany\gestor\vistas\Vista_Grupos$5.class
+Horarios\ExportadorPDF.class
 com\mycompany\gestor\vistas\Vista_Aula.class
 com\mycompany\gestor\vistas\Vista_Horarios$1.class
 com\mycompany\gestor\modelos\Grupo.class
