@@ -68,7 +68,7 @@ public class ControladorVistaHorario {
                 rs.getString("dia_semana"),
                 rs.getString("hora_inicio"),
                 rs.getString("hora_fin"),
-                categoria.equals("Estudiante") ? rs.getString("estudiante") : null,
+                categoria.equals("Estudiante") ? rs.getString("estudiante") : "N.A",
                 
             });
         }
