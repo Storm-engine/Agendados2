@@ -3,9 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.gestor.controladores.vistas;
+import static Horarios.ExportadorPDF.exportarJTableAPDF;
 import com.mycompany.gestor.controladores.Conexion;
 import com.mycompany.gestor.modelos.Horario;
 import java.sql.*;
+import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -14,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 
 public class ControladorVistaHorario {
-public void llenarHorario(JTable tabla, int id, String categoria) {
+    public void llenarHorario(JTable tabla, int id, String categoria) {
     String sql = "";
 
     if (categoria.equals("Estudiante")) {
@@ -75,6 +77,17 @@ public void llenarHorario(JTable tabla, int id, String categoria) {
         ex.printStackTrace();
     }
 }
-
+    
+    public void exportarJTableConChooser(JTable tabla) {
+        JFileChooser chooser = new JFileChooser();
+        int resultado = chooser.showSaveDialog(null);
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            String ruta = chooser.getSelectedFile().getAbsolutePath();
+            if (!ruta.toLowerCase().endsWith(".pdf")) {
+                ruta += ".pdf";
+            }
+            exportarJTableAPDF(tabla, ruta);
+        }
+    }
 }
 

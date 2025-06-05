@@ -34,7 +34,7 @@ public class Vista_Horarios extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_horario = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         TextoID = new javax.swing.JTextField();
         btn_consultar = new javax.swing.JButton();
@@ -43,13 +43,14 @@ public class Vista_Horarios extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btn_regresar = new javax.swing.JButton();
+        btn_consultar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_horario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -68,7 +69,7 @@ public class Vista_Horarios extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_horario);
 
         jComboBox1.setBackground(new java.awt.Color(204, 255, 204));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiante", "Profesor", "Aula", " " }));
@@ -128,6 +129,15 @@ public class Vista_Horarios extends javax.swing.JFrame {
             }
         });
 
+        btn_consultar1.setBackground(new java.awt.Color(204, 255, 204));
+        btn_consultar1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_consultar1.setText("Exportar en pdf");
+        btn_consultar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -138,10 +148,15 @@ public class Vista_Horarios extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1)
                         .addComponent(jLabel2)
-                        .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TextoID)
-                        .addComponent(jComboBox1, 0, 203, Short.MAX_VALUE))
-                    .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBox1, 0, 203, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(31, 31, 31)
+                            .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btn_consultar1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
@@ -164,9 +179,11 @@ public class Vista_Horarios extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
+                        .addGap(44, 44, 44)
                         .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_consultar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
@@ -195,12 +212,16 @@ public class Vista_Horarios extends javax.swing.JFrame {
         int idTexto = Integer.parseInt(TextoID.getText());
         String categoria = jComboBox1.getSelectedItem().toString();
 
-        controladorHorario.llenarHorario(jTable1,idTexto ,categoria);
+        controladorHorario.llenarHorario(tabla_horario,idTexto ,categoria);
     }//GEN-LAST:event_btn_consultarActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         vc.cambiarVista("menu");
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_consultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar1ActionPerformed
+        controladorHorario.exportarJTableConChooser(tabla_horario);
+    }//GEN-LAST:event_btn_consultar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,6 +262,7 @@ public class Vista_Horarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TextoID;
     private javax.swing.JButton btn_consultar;
+    private javax.swing.JButton btn_consultar1;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -249,6 +271,6 @@ public class Vista_Horarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla_horario;
     // End of variables declaration//GEN-END:variables
 }
