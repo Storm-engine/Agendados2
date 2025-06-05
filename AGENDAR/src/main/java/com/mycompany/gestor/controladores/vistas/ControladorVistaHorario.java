@@ -66,7 +66,7 @@ public void llenarHorario(JTable tabla, int id, String categoria) {
                 rs.getString("dia_semana"),
                 rs.getString("hora_inicio"),
                 rs.getString("hora_fin"),
-                categoria.equals("Estudiante") ? rs.getString("estudiante") : "N.A",
+                categoria.equals("Estudiante") ? rs.getString("estudiante") : null,
                 
             });
         }
