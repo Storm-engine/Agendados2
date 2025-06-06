@@ -20,6 +20,7 @@ public class Vista_Aula extends javax.swing.JFrame {
      */
     public Vista_Aula() {
         initComponents();
+        ct.consultar(tbl);
     }
 
     /**

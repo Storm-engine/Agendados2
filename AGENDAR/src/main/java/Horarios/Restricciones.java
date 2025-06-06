@@ -44,7 +44,6 @@ public class Restricciones {
                         else if (restriccion.equals("noche") && hora <= 5) {
                             bloques[idx] = true; // solo trabaja en la noche
                         }
-                        // “ninguna” → todos false
                     }
                 }
 

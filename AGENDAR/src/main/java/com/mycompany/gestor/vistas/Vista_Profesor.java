@@ -20,6 +20,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
      */
     public Vista_Profesor() {
         initComponents();
+        ct.consultar(tbl);
     }
 
     /**
@@ -269,7 +270,7 @@ public class Vista_Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_insertarActionPerformed
 
     private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
-    ct.consultar(tbl);
+        ct.consultar(tbl);
     }//GEN-LAST:event_btn_consultarActionPerformed
 
     private void edit_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_correoActionPerformed

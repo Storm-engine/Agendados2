@@ -1,0 +1,193 @@
+create database if not exists horario;
+use horario;
+
+create table if not exists aulas (
+  id_aula int not null auto_increment,
+  tipo_aula varchar(255) not null,
+  capacidad int not null,
+  nombre varchar(100),
+  primary key (id_aula)
+);
+
+create table if not exists carreras (
+  id_carrera int not null auto_increment,
+  nombre varchar(255) not null,
+  primary key (id_carrera),
+  unique (nombre)
+);
+
+create table if not exists materias (
+  id_materia int not null auto_increment,
+  nombre varchar(255) not null,
+  carga_horaria int not null,
+  tipo_aula varchar(45) not null,
+  primary key (id_materia)
+);
+
+create table if not exists carrera_materias (
+  id_carrera int not null,
+  id_materia int not null,
+  semestre int,
+  primary key (id_carrera, id_materia),
+  foreign key (id_carrera) references carreras(id_carrera),
+  foreign key (id_materia) references materias(id_materia)
+);
+
+create table if not exists estudiantes (
+  id_estudiante int not null auto_increment,
+  nombre varchar(255) not null,
+  correo varchar(255) not null,
+  semestre int not null,
+  id_carrera int,
+  primary key (id_estudiante),
+  unique (correo),
+  foreign key (id_carrera) references carreras(id_carrera)
+);
+
+create table if not exists profesores (
+  id_profesor int not null auto_increment,
+  nombre varchar(255) not null,
+  correo varchar(45) not null,
+  restriccion varchar(45) not null,
+  primary key (id_profesor)
+);
+
+create table if not exists grupos (
+  id_grupo int not null auto_increment,
+  id_materia int not null,
+  id_profesor int not null,
+  primary key (id_grupo),
+  foreign key (id_materia) references materias(id_materia),
+  foreign key (id_profesor) references profesores(id_profesor)
+);
+
+create table if not exists estudiante_grupos (
+  id_estudiante int not null,
+  id_grupo int not null,
+  primary key (id_estudiante, id_grupo),
+  foreign key (id_estudiante) references estudiantes(id_estudiante),
+  foreign key (id_grupo) references grupos(id_grupo)
+);
+
+create table if not exists horarios (
+  id_horario int not null auto_increment,
+  id_materia int not null,
+  id_profesor int not null,
+  id_aula int not null,
+  id_grupo int not null,
+  dia_semana varchar(50) not null,
+  hora_inicio time not null,
+  hora_fin time not null,
+  primary key (id_horario),
+  foreign key (id_materia) references materias(id_materia),
+  foreign key (id_profesor) references profesores(id_profesor),
+  foreign key (id_aula) references aulas(id_aula),
+  foreign key (id_grupo) references grupos(id_grupo)
+);
+
+
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (1,'COMUN',30,'Aula 101');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (2,'COMUN',40,'Aula 102');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (3,'INFORMATICA',25,'Sala de Cómputo A');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (4,'LABORATORIO',20,'Laboratorio de Física');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (5,'COMUN',35,'Aula 201');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (6,'INFORMATICA',30,'Sala de Cómputo B');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (7,'LABORATORIO',15,'Laboratorio de Química');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (8,'COMUN',50,'Auditorio 1');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (9,'INFORMATICA',20,'Sala de Cómputo C');
+INSERT INTO aulas (id_aula,tipo_aula,capacidad,nombre) VALUES (10,'LABORATORIO',18,'Laboratorio de Biología');
+
+INSERT INTO carreras (id_carrera,nombre) VALUES (12,'Ingeniería en Sistemas');
+INSERT INTO carreras (id_carrera,nombre) VALUES (13,'Ingeniería Civil');
+INSERT INTO carreras (id_carrera,nombre) VALUES (14,'Ingeniería Industrial');
+INSERT INTO carreras (id_carrera,nombre) VALUES (15,'Contaduría');
+INSERT INTO carreras (id_carrera,nombre) VALUES (16,'Administración de Empresas');
+
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (1,'Carlos Martínez','carlos.martinez@sistemas.com',1,12);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (2,'Lucía Gómez','lucia.gomez@sistemas.com',2,12);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (3,'Miguel Torres','miguel.torres@sistemas.com',3,12);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (4,'Sofía Herrera','sofia.herrera@sistemas.com',1,12);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (5,'Javier Rojas','javier.rojas@sistemas.com',2,12);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (6,'Valeria Díaz','valeria.diaz@sistemas.com',3,12);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (7,'Ana López','ana.lopez@contaduria.com',1,15);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (8,'Diego Ramírez','diego.ramirez@contaduria.com',2,15);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (9,'Paola Medina','paola.medina@contaduria.com',3,15);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (10,'Luis Fernando','luis.fernando@contaduria.com',1,15);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (11,'María José','maria.jose@contaduria.com',2,15);
+INSERT INTO estudiantes (id_estudiante,nombre,correo,semestre,id_carrera) VALUES (12,'Daniel Vargas','daniel.vargas@contaduria.com',3,15);
+
+
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (1,'Matematicas I',6,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (2,'Física I',4,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (3,'Programación I',6,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (4,'Álgebra Lineal',4,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (5,'Estadística I',4,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (6,'Economía',2,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (7,'Contabilidad General',4,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (8,'Administración I',2,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (9,'Estructura de Datos',6,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (10,'Matemáticas II',4,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (11,'Física II',4,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (12,'Programación II',6,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (13,'Redes de Computadoras',4,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (14,'Bases de Datos',6,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (15,'Contabilidad de Costos',4,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (16,'Microeconomía',2,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (17,'Macroeconomía',2,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (18,'Ética Profesional',2,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (19,'Legislación Empresarial',2,'COMUN');
+INSERT INTO materias (id_materia,nombre,carga_horaria,tipo_aula) VALUES (20,'Investigación de Operaciones',4,'COMUN');
+
+
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('1','Laura Gomez','laura.gomez@example.com','TARDE');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('2','Carlos Pérez','carlos.perez@example.com','NINGUNA');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('3','Ana Ramírez','ana.ramirez@example.com','NINGUNA');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('4','Pedro Sánchez','pedro.sanchez@example.com','NINGUNA');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('5','María Torres','maria.torres@example.com','NINGUNA');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('6','Luis Herrera','luis.herrera@example.com','NINGUNA');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('7','Sofía Morales','sofia.morales@example.com','NINGUNA');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('8','Diego Ríos','diego.rios@example.com','NINGUNA');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('9','Camila Vega','camila.vega@example.com','NINGUNA');
+INSERT INTO profesores (id_profesor,nombre,correo,restriccion) VALUES ('10','Jorge Medina','jorge.medina@example.com','NINGUNA');
+
+
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (1,1,1);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (2,2,1);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (3,3,2);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (4,4,2);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (5,5,2);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (6,6,3);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (7,7,3);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (8,8,4);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (9,9,4);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (10,10,5);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (11,11,6);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (12,12,6);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (13,13,6);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (14,14,7);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (15,15,7);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (16,16,8);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (17,17,8);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (18,18,9);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (19,19,9);
+INSERT INTO grupos  (id_grupo,id_materia,id_profesor) VALUES (20,20,10);
+
+
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (12,1,1);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (12,2,1);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (12,3,1);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (12,4,2);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (12,9,2);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (12,12,3);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (12,15,3);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (12,14,3);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,5,1);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,6,1);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,7,1);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,8,2);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,15,2);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,16,3);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,17,3);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,18,3);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,19,3);
+INSERT INTO carrera_materias (id_carrera,id_materia,semestre) VALUES (15,20,3);

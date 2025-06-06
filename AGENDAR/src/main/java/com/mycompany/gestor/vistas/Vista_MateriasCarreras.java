@@ -22,6 +22,7 @@ public class Vista_MateriasCarreras extends javax.swing.JFrame {
      */
     public Vista_MateriasCarreras() {
         initComponents();
+        ct.consultar(tbl);
     }
 
     /**

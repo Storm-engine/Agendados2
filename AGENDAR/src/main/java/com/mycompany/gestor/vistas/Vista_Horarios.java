@@ -131,7 +131,8 @@ public class Vista_Horarios extends javax.swing.JFrame {
 
         btn_consultar1.setBackground(new java.awt.Color(204, 255, 204));
         btn_consultar1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_consultar1.setText("Exportar en pdf");
+        btn_consultar1.setText("Exportar excel");
+        btn_consultar1.setToolTipText("");
         btn_consultar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_consultar1ActionPerformed(evt);

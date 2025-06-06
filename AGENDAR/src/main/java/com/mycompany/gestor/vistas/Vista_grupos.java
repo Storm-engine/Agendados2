@@ -21,6 +21,7 @@ public class Vista_Grupos extends javax.swing.JFrame {
      */
     public Vista_Grupos() {
         initComponents();
+        ct.consultar(tbl);
     }
 
     /**
