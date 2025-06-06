@@ -285,6 +285,9 @@
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
                 <Property name="actionCommand" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_actualizarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_consultar">
               <Properties>
@@ -306,7 +309,7 @@
             </Component>
             <Component class="javax.swing.JSlider" name="slide_cap">
               <Properties>
-                <Property name="maximum" type="int" value="10"/>
+                <Property name="maximum" type="int" value="35"/>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="slide_capStateChanged"/>

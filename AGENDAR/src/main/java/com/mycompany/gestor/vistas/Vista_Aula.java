@@ -6,11 +6,6 @@ package com.mycompany.gestor.vistas;
 
 import com.mycompany.gestor.controladores.ViewController;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaAula;
-import com.mycompany.gestor.controladores.vistas.ControladorVistaEstudiante;
-import com.mycompany.gestor.modelos.Aula;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -118,6 +113,11 @@ public class Vista_Aula extends javax.swing.JFrame {
         btn_actualizar.setForeground(new java.awt.Color(0, 21, 36));
         btn_actualizar.setText("ACTUALIZAR");
         btn_actualizar.setActionCommand("");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarActionPerformed(evt);
+            }
+        });
 
         btn_consultar.setBackground(new java.awt.Color(255, 236, 209));
         btn_consultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -130,7 +130,7 @@ public class Vista_Aula extends javax.swing.JFrame {
             }
         });
 
-        slide_cap.setMaximum(10);
+        slide_cap.setMaximum(35);
         slide_cap.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 slide_capStateChanged(evt);
@@ -318,6 +318,14 @@ public class Vista_Aula extends javax.swing.JFrame {
     private void box_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_tipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_box_tipoActionPerformed
+
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+        // TODO add your handling code here:
+        ct.actualizar(Integer.parseInt(edit_id.getText()),
+                box_tipo.getSelectedItem().toString(),
+                slide_cap.getValue(),
+                edit_nombre.getText() );
+    }//GEN-LAST:event_btn_actualizarActionPerformed
 
     /**
      * @param args the command line arguments

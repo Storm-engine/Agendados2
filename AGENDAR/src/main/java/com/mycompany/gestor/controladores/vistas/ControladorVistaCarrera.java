@@ -4,18 +4,12 @@
  */
 package com.mycompany.gestor.controladores.vistas;
 
-import com.mycompany.gestor.controladores.Conexion;
 import com.mycompany.gestor.controladoresconsultas.CarreraManager;
-import com.mycompany.gestor.controladoresconsultas.CarreraMateriaManager;
-import com.mycompany.gestor.controladoresconsultas.EstudianteManager;
 import com.mycompany.gestor.modelos.Carrera;
-import com.mycompany.gestor.modelos.CarreraMateria;
-import com.mycompany.gestor.modelos.Estudiante;
-import java.awt.color.CMMException;
-import java.sql.*;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 
 public class ControladorVistaCarrera {
     private CarreraManager manager = new CarreraManager();

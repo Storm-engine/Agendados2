@@ -71,6 +71,7 @@ com\mycompany\gestor\vistas\Vista_Profesor$1.class
 com\mycompany\gestor\controladores\vistas\ControladorVistaProfesor.class
 com\mycompany\gestor\modelos\Profesor.class
 com\mycompany\gestor\vistas\Vista_Carreras$1.class
+com\mycompany\gestor\vistas\Vista_Aula$9.class
 com\mycompany\gestor\vistas\Vista_Estudiante$2.class
 com\mycompany\gestor\vistas\Vista_MateriasCarreras$4.class
 com\mycompany\gestor\vistas\Vista_Profesor$4.class

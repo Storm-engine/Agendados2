@@ -13,18 +13,14 @@ import javax.swing.*;
 import java.util.HashMap;
 
 public class ViewController {
-    public static HashMap<String, JFrame> vistas; // Mapa para manejar ventanas
-    private static JFrame ventanaActual; // La ventana que está visible
+    public static HashMap<String, JFrame> vistas;
+    private static JFrame ventanaActual; 
     private static ViewController vc;
     public ViewController() {
         vistas = new HashMap<>();
     }
 
-    /**
-     * Registra una vista en el sistema.
-     * @param nombre Nombre de la vista
-     * @param ventana La instancia de la ventana (JFrame)
-     */
+    
     public void agregarVista(String nombre, JFrame ventana) {
         vistas.put(nombre, ventana);
     }
@@ -54,12 +50,12 @@ public class ViewController {
             return;
         }
 
-        // Cerrar la ventana actual si existe
+        
         if (ventanaActual != null) {
             ventanaActual.setVisible(false);
         }
 
-        // Abrir la nueva ventana
+        
         ventanaActual = vistas.get(nombre);
         ventanaActual.setVisible(true);
     }

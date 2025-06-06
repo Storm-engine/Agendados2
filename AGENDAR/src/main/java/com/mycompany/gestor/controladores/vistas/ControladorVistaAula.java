@@ -28,7 +28,7 @@ public class ControladorVistaAula {
                 aula.getIdAula(),
                 aula.getTipoAula(),
                 aula.getCapacidad(),
-                aula.getNombre()  // Mostrar nombre en la tabla
+                aula.getNombre()  
             });
         }
 
@@ -42,5 +42,10 @@ public class ControladorVistaAula {
 
     public void eliminar(int idAula) {
         aulaManager.eliminar(idAula);
+    }
+    
+    public void actualizar(int idAula, String tipoAula, int capacidad, String nombre){
+        Aula aula = new Aula(idAula, tipoAula, capacidad,nombre);
+        aulaManager.actualizar(aula);
     }
 }

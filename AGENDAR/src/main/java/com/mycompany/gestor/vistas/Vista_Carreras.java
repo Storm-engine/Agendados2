@@ -7,8 +7,7 @@ package com.mycompany.gestor.vistas;
 
 import com.mycompany.gestor.controladores.ViewController;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaCarrera;
-import com.mycompany.gestor.controladores.vistas.ControladorVistaCarreraMateria;
-import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
+
 
 /**
  *

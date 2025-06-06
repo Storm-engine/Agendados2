@@ -6,10 +6,8 @@ package com.mycompany.gestor.vistas;
 
 
 import com.mycompany.gestor.controladores.ViewController;
-import com.mycompany.gestor.controladores.vistas.ControladorVistaCarreraMateria;
 import com.mycompany.gestor.controladores.vistas.ControladorVistaGrupo;
-import com.mycompany.gestor.controladores.vistas.ControladorVistaMateria;
-import com.mycompany.gestor.controladoresconsultas.MateriaManager;
+
 
 /**
  *
